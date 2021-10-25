@@ -1,0 +1,53 @@
+import React, {useState} from 'react'
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import InspectionForm from '../components/InspectionForm';
+import InspectionTasks from '../components/InspectionTasks';
+
+export default function InspectionSchedule() {
+    const [value, onChange] = useState(new Date());
+    const [date, setDate] = useState();
+    return (
+    <div style={{ marginLeft:10, marginRight:10 }}>
+    <div className="row">
+        <div className="col-xl-6 col-lg-5 col">
+            <div className="card shadow mb-4">
+                <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 className="m-0 font-weight-bold text-my-primary">Inspection Calendar</h6>
+                </div>
+                <div className="card-body">
+                    <div className="chart-area center">
+                        <Calendar value={value}
+                        onChange={onChange} onClickDay={(value)=>{setDate(value.getFullYear()+ '-'+ value.getMonth() + '-' + value.getDate()); console.log(value.getFullYear()+ '-'+ value.getMonth() + '-' + value.getDate())}}/>   
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div className="col-xl-5 col-lg-6">
+        <div className="card shadow mb-4">
+                <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 className="m-0 font-weight-bold text-my-primary">Add New Inspection Task</h6>
+                </div>
+                <div className="card-body">
+                    <div className="chart-area center">
+                        <InspectionForm />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div className='row'>
+        <div className="col">
+            <div className="card shadow mb-4">
+                <div className="card-header py-3">
+                    <h6 className="m-0 font-weight-bold text-my-primary">Tasks for {date}</h6>
+                </div>
+                <div className="card-body">
+                    <InspectionTasks />
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    )
+}
