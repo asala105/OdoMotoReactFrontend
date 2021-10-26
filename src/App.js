@@ -1,8 +1,8 @@
 import './App.css';
 
-import Navbar from './components/Navbar';
+import Navbar from './components/navigation/Navbar';
 import Dashboard from './layout/Dashboard';
-import SideBar from './components/SideBar';
+import SideBar from './components/navigation/SideBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
@@ -26,8 +26,8 @@ function AppPages(){
     <div id="content-wrapper" className="d-flex flex-column">
         <div id="content">
             <Navbar />
-            <Route exact path="/home" component={Dashboard}/>
-            <Route exact path="/inspection" component={InspectionSchedule}/>
+            <Route exact path="/" component={Dashboard}/>
+            <Route exact path="/home" component={InspectionSchedule}/>
             <Route exact path="/leaves_requests" component={LeavesRequests}/>
             <Route exact path="/attendance_record" component={AttendanceRecord}/>
             <Route exact path="/vehicles_list" component={Vehicles}/>

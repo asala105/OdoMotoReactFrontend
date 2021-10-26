@@ -1,4 +1,5 @@
 import React from 'react'
+import DriversTable from '../components/users/DriversTable';
 
 export default function DriverList() {
     return (
@@ -9,6 +10,7 @@ export default function DriverList() {
                         <h6 className="m-0 font-weight-bold text-my-primary">Drivers List</h6>
                     </div>
                     <div className="card-body">
+                        <DriversTable/>
                     </div>
                 </div>
             </div>

@@ -5,14 +5,14 @@ export default function SideBar() {
     return (
         <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/home">
+            <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                 <SvgComponent style={{marginTop: 40, marginBottom:5}}/>
             </a>
 
             <hr className="sidebar-divider my-0 mt-5"/>
 
             <li className="nav-item active">
-                <a className="nav-link" href="/home">
+                <a className="nav-link" href="/">
                     <i className="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>

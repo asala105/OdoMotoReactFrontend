@@ -1,61 +1,62 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import api from '../api'
+import VehicleItem from './VehicleItem';
 
 export default function VehiclesTable() {
+    const [vehicles, setVehicles] = useState([]);
+    function get_data(){
+        api.VehicleData().then(function(response){
+            console.log(response);
+            setVehicles(response.data.data);
+        }).catch((error)=>{
+            console.log(error);
+        })
+    }
+
+    function removeRow(id) {
+        document.getElementById(id).remove();
+      }
+
+    useEffect(() => {
+        get_data()
+    }, []
+    )
     return (
     <div className="table-responsive">
         <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
                     <th>Driver</th>
-                    <th>From</th>
-                    <th>Till</th>
-                    <th>Leave Type</th>
+                    <th>Category</th>
+                    <th>Registration code</th>
+                    <th>Plate</th>
+                    <th>Model</th>
+                    <th>Gross Weight</th>
+                    <th>Odometer</th>
+                    <th>Fuel</th>
+                    <th>Ownership</th>
+                    <th>Driver License Requirements</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>John Doe</td>
-                    <td>2021/10/18</td>
-                    <td>2021/10/19</td>
-                    <td>Sick Leave</td>
-                    <td>
-                        <a href="#" className="btn btn-success btn-circle mr-1">
-                            <i className="fas fa-check"></i>
-                        </a>
-                        <a href="#" className="btn btn-danger btn-circle ml-1">
-                            <i className="fas fa-times"></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>John Doe</td>
-                    <td>2021/10/18</td>
-                    <td>2021/10/19</td>
-                    <td>Sick Leave</td>
-                    <td>
-                        <a href="#" className="btn btn-success btn-circle mr-1">
-                            <i className="fas fa-check"></i>
-                        </a>
-                        <a href="#" className="btn btn-danger btn-circle ml-1">
-                            <i className="fas fa-times"></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>John Doe</td>
-                    <td>2021/10/18</td>
-                    <td>2021/10/19</td>
-                    <td>Sick Leave</td>
-                    <td>
-                        <a href="#" className="btn btn-success btn-circle mr-1">
-                            <i className="fas fa-check"></i>
-                        </a>
-                        <a href="#" className="btn btn-danger btn-circle ml-1">
-                            <i className="fas fa-times"></i>
-                        </a>
-                    </td>
-                </tr>
+                {vehicles.map(vehicle => 
+                    <VehicleItem
+                    onRemove={function decline() {
+                        removeRow(vehicle.id);
+                      }}
+                     id={vehicle.id} 
+                        driver ={vehicle.driver.first_name + ' ' + vehicle.driver.last_name}
+                        category ={vehicle.category}
+                        reg_code = {vehicle.registration_code}
+                        plate = { vehicle.plate_number}
+                        model = { vehicle.model}
+                        weight = { vehicle.weight}
+                        odometer = { vehicle.odometer}
+                        fuel = { vehicle.fuel_level}
+                        ownership = { vehicle.is_rented}
+                        extra_reqs = { vehicle.driver_license_requirements}
+                />)}
             </tbody>
         </table>
     </div>

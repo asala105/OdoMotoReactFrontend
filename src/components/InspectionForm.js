@@ -1,6 +1,52 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
+import api from '../api';
 
 export default function InspectionForm() {
+    const [driversNames, setDriversNames] = useState([]);
+    const [vehicles, setVehicles] = useState([]);
+    const [date, setDate] = useState(new Date());
+    const [type, setType] = useState(0);
+    const [driver, setDriver] = useState(null);
+    const [vehicle, setVehicle] = useState(null);
+    const [error, setError] = useState('');
+
+    function handleSubmit(){
+        console.log('Submit');
+        if(driver === null || vehicle === null){
+            setError('All fields are required');
+        }
+        else{
+            let dataToSend = {
+                date: date,
+                inspection_type: type,
+                driver_id: driver,
+                vehicle_id: vehicle,
+            };
+            console.log(dataToSend);
+        }
+    }
+    function getData(){
+        api.driverData()
+        .then(function(response){
+            setDriversNames(response.data.data);
+        })
+        .catch((error)=>{
+            console.log('error', error);
+        })
+
+        api.VehicleData()
+        .then(function(response){
+            setVehicles(response.data.data);
+        })
+        .catch((error)=>{
+            console.log('error', error);
+        })
+    }
+
+    useEffect(() => {
+        getData();
+    },[])
+
     return (
         <form className="user">
             <div className="form-group row">
@@ -9,17 +55,17 @@ export default function InspectionForm() {
                 </div>
                 <div className="col-7">
                 <input type="date" className="form-control"
-                    id="date"/>
+                    id="date" onChange={(event)=>{setDate(event.target.value);}}/>
                     </div>
             </div>
             <div className="form-group">
                 <label for="date" style={{ paddingLeft: 10 }}>Inspection Type</label>
-                <div className="btn-secondary btn-group btn-group-toggle btn-block" data-toggle="buttons">
+                <div className="btn-secondary btn-group btn-group-toggle btn-block" data-toggle="buttons" onClick={(event)=>{setType(event.target.value);}}>
                     <label className="btn btn-secondary active">
-                        <input type="radio" name="options" id="option1" checked/> Safety Check
+                        <input type="radio" name="options" id="option1" value='0' checked/> Safety Check
                     </label>
                     <label className="btn btn-secondary">
-                        <input type="radio" name="options" id="option2"/> Maintenance
+                        <input type="radio" name="options" id="option2" value='1'/> Maintenance
                     </label>
                 </div>
             </div>
@@ -28,11 +74,11 @@ export default function InspectionForm() {
                 <label for="date" style={{ paddingLeft: 10 }}>Driver's Name</label>
                 </div>
                 <div className="col-7">
-                <select className="form-select form-control form-select-lg mb-3" aria-label=".form-select-lg example">
-                    <option selected>Select the driver's name</option>
-                    <option value="1">John</option>
-                    <option value="2">Jim</option>
-                    <option value="3">Tim</option>
+                <select className="form-select form-control form-select-lg mb-3" aria-label=".form-select-lg example" onChange={(event)=>{setDriver(event.target.value);}}>
+                    <option velue='null' selected>Select the driver's name</option>
+                    {driversNames.map((driver)=>
+                    <option value={driver.id}>{driver.first_name + " " + driver.last_name}</option>
+                    )}
                 </select>
                 </div>
             </div>
@@ -41,15 +87,15 @@ export default function InspectionForm() {
                 <label for="date" style={{ paddingLeft: 10 }}>Vehicle ID</label>
                 </div>
                 <div className="col-7">
-                <select className="form-select form-control form-select-lg mb-3" aria-label=".form-select-lg example">
-                    <option selected>Select the vehicle's id</option>
-                    <option value="1">Rec 001</option>
-                    <option value="2">Rec 002</option>
-                    <option value="3">Rec 003</option>
+                <select className="form-select form-control form-select-lg mb-3" aria-label=".form-select-lg example" onChange={(event)=>{setVehicle(event.target.value);}}>
+                    <option value='null' selected>Select the vehicle's id</option>
+                    {vehicles.map((vehicle) => 
+                        <option value={vehicle.id}>{vehicle.registration_code}</option>
+                    )}
                 </select>
                 </div>
             </div>
-            <a href="index.html" className="btn btn-my-primary btn-block">
+            <a className="btn btn-my-primary btn-block" onClick={handleSubmit}>
                 Save To Calendar
             </a>
         </form>

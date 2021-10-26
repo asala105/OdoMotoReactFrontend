@@ -1,10 +1,10 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import undraw_profile_1 from '../img/svgComponents/undraw_profile_1'
-import undraw_profile_2 from '../img/svgComponents/undraw_profile_2'
-import undraw_profile_3 from '../img/svgComponents/undraw_profile_3'
-import undraw_profile from '../img/svgComponents/undraw_profile'
+import undraw_profile_1 from '../../img/svgComponents/undraw_profile_1'
+import undraw_profile_2 from '../../img/svgComponents/undraw_profile_2'
+import undraw_profile_3 from '../../img/svgComponents/undraw_profile_3'
+import undraw_profile from '../../img/svgComponents/undraw_profile'
 
 export default function Navbar() {
     return (

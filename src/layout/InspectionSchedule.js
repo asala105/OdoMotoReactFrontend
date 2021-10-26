@@ -1,12 +1,27 @@
 import React, {useState} from 'react'
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import api from '../api';
 import InspectionForm from '../components/InspectionForm';
 import InspectionTasks from '../components/InspectionTasks';
+
 
 export default function InspectionSchedule() {
     const [value, onChange] = useState(new Date());
     const [date, setDate] = useState();
+    const [inspectionTasks, setInspectionTasks] = useState([]);
+
+    async function getTasks(value){
+        let dd = value.getFullYear()+ '-'+ (value.getMonth()+1) + '-' + value.getDate()
+        setDate(dd);
+        api.getInspectionTasks(dd)
+        .then(function(response){
+            console.log(response.data.inspectionTasks);
+            setInspectionTasks(response.data.inspectionTasks);
+        }).catch((error)=>{
+            console.log(error);
+        })
+    }
     return (
     <div style={{ marginLeft:10, marginRight:10 }}>
     <div className="row">
@@ -18,7 +33,8 @@ export default function InspectionSchedule() {
                 <div className="card-body">
                     <div className="chart-area center">
                         <Calendar value={value}
-                        onChange={onChange} onClickDay={(value)=>{setDate(value.getFullYear()+ '-'+ value.getMonth() + '-' + value.getDate()); console.log(value.getFullYear()+ '-'+ value.getMonth() + '-' + value.getDate())}}/>   
+                        onChange={onChange} 
+                        onClickDay={(value)=>{getTasks(value)}}/>   
                     </div>
                 </div>
             </div>
@@ -43,7 +59,7 @@ export default function InspectionSchedule() {
                     <h6 className="m-0 font-weight-bold text-my-primary">Tasks for {date}</h6>
                 </div>
                 <div className="card-body">
-                    <InspectionTasks />
+                    <InspectionTasks tasks={inspectionTasks}/>
                 </div>
             </div>
         </div>
