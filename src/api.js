@@ -37,4 +37,10 @@ export default{
 
     addInspectionTask: (data) =>
     axios.post(`${BASE_URL}/add_inspection_task`, data, token),
+
+    deleteTask: (id) =>
+    axios.get(`${BASE_URL}/delete_inspection_task/${id}`, token),
+
+    markTaskDone: (id) =>
+    axios.get(`${BASE_URL}/mark_task_done/${id}`, token),
 }

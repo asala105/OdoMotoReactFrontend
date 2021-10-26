@@ -1,5 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
+import api from '../api'
+import InspectionTaskItem from './InspectionTaskItem'
+
 export default function InspectionTasks(props) {
+    function removeRow(id) {
+        document.getElementById(id).remove();
+    }
     return (
     <div className="table-responsive">
         <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -14,20 +20,7 @@ export default function InspectionTasks(props) {
             </thead>
             <tbody>
                 {props.tasks.map((task)=>
-                    <tr id={task.id}>
-                    <td>{task.vehicle.registration_code}</td>
-                    <td>{task.driver.first_name + ' ' + task.driver.last_name}</td>
-                    <td>{task.inspection_type? 'Maintenance': 'Safety Inspection'}</td>
-                    <td>{task.status.status}</td>
-                    <td>
-                    <a href="#" className="btn btn-success btn-circle mr-1">
-                                            <i className="fas fa-check"></i>
-                                        </a>
-                                        <a href="#" className="btn btn-danger btn-circle ml-1">
-                                            <i className="fas fa-trash"></i>
-                                        </a>
-                    </td>
-                </tr>
+                    <InspectionTaskItem onRemove={()=>removeRow(task.id)} task={task}/>
                 )}
             </tbody>
         </table>

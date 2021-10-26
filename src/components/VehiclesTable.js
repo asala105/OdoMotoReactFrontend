@@ -22,8 +22,8 @@ export default function VehiclesTable() {
     }, []
     )
     return (
-    <div className="table-responsive">
-        <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <div className="table-responsive text-nowrap">
+        <table className="table table-bordered" id="dataTable" width="100%">
             <thead>
                 <tr>
                     <th>Driver</th>
@@ -46,7 +46,7 @@ export default function VehiclesTable() {
                         removeRow(vehicle.id);
                       }}
                      id={vehicle.id} 
-                        driver ={vehicle.driver.first_name + ' ' + vehicle.driver.last_name}
+                        driver ={vehicle.driver !==null? vehicle.driver.first_name + ' ' + vehicle.driver.last_name: " "}
                         category ={vehicle.category}
                         reg_code = {vehicle.registration_code}
                         plate = { vehicle.plate_number}

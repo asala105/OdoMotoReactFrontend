@@ -22,6 +22,14 @@ export default function InspectionForm() {
                 driver_id: driver,
                 vehicle_id: vehicle,
             };
+            api.addInspectionTask(dataToSend)
+            .then((response) => {
+                console.log('Added successfully')
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+            
             console.log(dataToSend);
         }
     }

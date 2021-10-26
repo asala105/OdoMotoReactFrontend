@@ -15,7 +15,7 @@ export default function DriversTable() {
 
     function removeRow(id) {
         document.getElementById(id).remove();
-      }
+    }
 
     useEffect(() => {
         get_data()
