@@ -1,5 +1,5 @@
 import React from 'react'
-import VehiclesTable from '../components/VehiclesTable'
+import VehiclesTable from '../components/vehicles/VehiclesTable'
 
 export default function Vehicles() {
     return (

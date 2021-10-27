@@ -17,8 +17,20 @@ export default{
     Login: (login) =>
     axios.post(`${BASE_URL}/login`,login),
 
+    RegisterOrganization: (data) =>
+    axios.post(`${BASE_URL}/register_organization`, data, token),
+
+    RegisterUser: (data) =>
+    axios.post(`${BASE_URL}/register`, data, token),
+
     DashboardData: () =>
     axios.get(`${BASE_URL}/dashboard`,token),
+
+    userData: () =>
+    axios.get(`${BASE_URL}/get_users`,token),
+
+    departmentData: () =>
+    axios.get(`${BASE_URL}/get_departments`,token),
 
     VehicleData: () =>
     axios.get(`${BASE_URL}/view_vehicles`,token),

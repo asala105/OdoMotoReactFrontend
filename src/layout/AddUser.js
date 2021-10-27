@@ -1,5 +1,5 @@
 import React from 'react'
-import AddUserForm from '../components/AddUserForm'
+import AddUserForm from '../components/users/AddUserForm'
 
 export default function AddUser() {
     return (

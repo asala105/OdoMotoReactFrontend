@@ -2,8 +2,8 @@ import React, {useState} from 'react'
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import api from '../api';
-import InspectionForm from '../components/InspectionForm';
-import InspectionTasks from '../components/InspectionTasks';
+import InspectionForm from '../components/vehicles/InspectionForm';
+import InspectionTasks from '../components/vehicles/InspectionTasks';
 
 
 export default function InspectionSchedule() {
