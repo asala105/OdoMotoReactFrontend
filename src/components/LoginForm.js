@@ -23,7 +23,7 @@ export default function LoginForm() {
         .then((response) => {
             if (response.data.user.user_type_id === 1) {
             localStorage.setItem("access_token", response.data.access_token);
-            history.replace("/home");
+            history.replace("/");
             window.location.reload();
             console.log('logged in successfully')
             }
