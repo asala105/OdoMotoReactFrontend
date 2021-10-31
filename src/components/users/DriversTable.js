@@ -6,7 +6,6 @@ export default function DriversTable() {
     const [drivers, setDrivers] = useState([]);
     function get_data(){
         api.driverData().then(function(response){
-            console.log(response);
             setDrivers(response.data.data);
         }).catch((error)=>{
             console.log(error);
@@ -22,8 +21,8 @@ export default function DriversTable() {
     }, []
     )
     return (
-    <div className="table-responsive">
-        <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <div className="table-responsive text-nowrap">
+        <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -38,7 +37,7 @@ export default function DriversTable() {
             </thead>
             <tbody>
                 {drivers.map(driver => 
-                    <DriverItem
+                    <DriverItem key={driver.id}
                     onRemove={function decline() {
                         removeRow(driver.id);
                       }}

@@ -1,8 +1,15 @@
 import React from 'react'
 import DriversTable from '../components/users/DriversTable';
+import SideBar from '../components/navigation/SideBar'
+import Navbar from '../components/navigation/Navbar'
 
 export default function DriverList() {
     return (
+        <div id="wrapper">
+        <SideBar />
+        <div id="content-wrapper" className="d-flex flex-column">
+            <div id="content">
+                <Navbar />
         <div className="row" style={{ marginLeft:10, marginRight:10 }}>
             <div className="col">
                 <div className="card shadow mb-4">
@@ -14,6 +21,9 @@ export default function DriverList() {
                     </div>
                 </div>
             </div>
+        </div>
+        </div>
+        </div>
         </div>
     );
 }

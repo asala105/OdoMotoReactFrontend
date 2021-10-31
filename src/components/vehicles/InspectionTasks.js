@@ -7,8 +7,8 @@ export default function InspectionTasks(props) {
         document.getElementById(id).remove();
     }
     return (
-    <div className="table-responsive">
-        <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <div className="table-responsive text-nowrap">
+        <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
             <thead>
                 <tr>
                     <th>Vehicle</th>

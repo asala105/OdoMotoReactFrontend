@@ -18,7 +18,10 @@ export default function MaintenanceChart(props) {
                         data: chartData,
                     }],
                 }}
-                options= {{}}
+                options= {{
+                    responsive: true,
+                    maintainAspectRatio: false
+                }}
                 />
     )
 }

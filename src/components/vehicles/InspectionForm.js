@@ -59,7 +59,7 @@ export default function InspectionForm() {
         <form className="user">
             <div className="form-group row">
                 <div className="col-5">
-                <label for="date" style={{ paddingLeft: 10 }}>Inspection Date</label>
+                <label htmlFor="date" style={{ paddingLeft: 10 }}>Inspection Date</label>
                 </div>
                 <div className="col-7">
                 <input type="date" className="form-control"
@@ -67,38 +67,38 @@ export default function InspectionForm() {
                     </div>
             </div>
             <div className="form-group">
-                <label for="date" style={{ paddingLeft: 10 }}>Inspection Type</label>
-                <div className="btn-secondary btn-group btn-group-toggle btn-block" data-toggle="buttons" onClick={(event)=>{setType(event.target.value);}}>
-                    <label className="btn btn-secondary active">
-                        <input type="radio" name="options" id="option1" value='0' checked/> Safety Check
+                <label htmlFor="date" style={{ paddingLeft: 10 }}>Inspection Type</label>
+                <div className="btn-secondary btn-group btn-group-toggle btn-block rounded" data-toggle="buttons" onClick={(event)=>{setType(event.target.value);}}>
+                    <label className="btn btn-secondary active" style={{ width:'50%' }}>
+                        <input type="radio" name="options" id="option1" value='0' /> Safety Check
                     </label>
-                    <label className="btn btn-secondary">
+                    <label className="btn btn-secondary" style={{ width:'50%' }}>
                         <input type="radio" name="options" id="option2" value='1'/> Maintenance
                     </label>
                 </div>
             </div>
             <div className="form-group row">
                 <div className="col-5">
-                <label for="date" style={{ paddingLeft: 10 }}>Driver's Name</label>
+                <label htmlFor="date" style={{ paddingLeft: 10 }}>Driver's Name</label>
                 </div>
                 <div className="col-7">
                 <select className="form-select form-control form-select-lg mb-3" aria-label=".form-select-lg example" onChange={(event)=>{setDriver(event.target.value);}}>
-                    <option velue='null' selected>Select the driver's name</option>
+                    <option velue='null'>Select the driver's name</option>
                     {driversNames.map((driver)=>
-                    <option value={driver.id}>{driver.first_name + " " + driver.last_name}</option>
+                    <option key={driver.id} value={driver.id}>{driver.first_name + " " + driver.last_name}</option>
                     )}
                 </select>
                 </div>
             </div>
             <div className="form-group row">
                 <div className="col-5">
-                <label for="date" style={{ paddingLeft: 10 }}>Vehicle ID</label>
+                <label htmlFor="date" style={{ paddingLeft: 10 }}>Vehicle ID</label>
                 </div>
                 <div className="col-7">
                 <select className="form-select form-control form-select-lg mb-3" aria-label=".form-select-lg example" onChange={(event)=>{setVehicle(event.target.value);}}>
-                    <option value='null' selected>Select the vehicle's id</option>
+                    <option value='null'>Select the vehicle's id</option>
                     {vehicles.map((vehicle) => 
-                        <option value={vehicle.id}>{vehicle.registration_code}</option>
+                        <option key={vehicle.id} value={vehicle.id}>{vehicle.registration_code}</option>
                     )}
                 </select>
                 </div>

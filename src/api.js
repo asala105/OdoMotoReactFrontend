@@ -55,4 +55,22 @@ export default{
 
     markTaskDone: (id) =>
     axios.get(`${BASE_URL}/mark_task_done/${id}`, token),
+
+    getAttendance: (data) =>
+    axios.post(`${BASE_URL}/attendance_records`,data,token),
+
+    getAttendanceByDate: (date) =>
+    axios.get(`${BASE_URL}/attendance_records_date/${date}`,token),
+
+    getLeaves: (data) =>
+    axios.post(`${BASE_URL}/leaves_records`,data,token),
+
+    addVehicle: (data) =>
+    axios.post(`${BASE_URL}/add_vehicle`,data,token),
+
+    getFilteredLeaves: (data) =>
+    axios.post(`${BASE_URL}/get_filtered_leaves`,data,token),
+
+    FleetData: () =>
+    axios.get(`${BASE_URL}/fleet_requests`,token)
 }

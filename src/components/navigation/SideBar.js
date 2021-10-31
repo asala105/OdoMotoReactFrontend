@@ -43,25 +43,18 @@ export default function SideBar() {
                 <a className="nav-link collapsed" href="/" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i className="fas fa-fw fa-briefcase"></i>
-                    <span>Forms</span>
+                    <span>Users</span>
                 </a>
                 <div id="collapseUtilities" className="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div className="bg-white py-2 collapse-inner rounded">
-                        <h6 className="collapse-header">Forms:</h6>
-                        <a className="collapse-item" href="utilities-color.html">Fleet Request</a>
-                        <a className="collapse-item" href="utilities-border.html">Leave Request</a>
-                        <a className="collapse-item" href="/add_vehicle">Add Vehicle</a>
+                        <h6 className="collapse-header">Users</h6>
+                        
                         <a className="collapse-item" href="/add_user">Add User</a>
+                        <a className="collapse-item" href="/drivers_list">Drivers List</a>
                     </div>
                 </div>
             </li>
-
-            <hr className="sidebar-divider"/>
-
-            <div className="sidebar-heading">
-                Data
-            </div>
 
             <li className="nav-item">
                 <a className="nav-link collapsed" href="/" data-toggle="collapse" data-target="#collapsePages"
@@ -72,6 +65,7 @@ export default function SideBar() {
                 <div id="collapsePages" className="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div className="bg-white py-2 collapse-inner rounded">
                         <h6 className="collapse-header">Vehicles</h6>
+                        <a className="collapse-item" href="/add_vehicle">Add Vehicle</a>
                         <a className="collapse-item" href="/vehicles_list">Vehicles List</a>
                         <a className="collapse-item" href="/inspection">Inspection Schedule</a>
                         <a className="collapse-item" href="/fuel_and_odometer_data">Fuel and Odometer Records</a>
@@ -80,13 +74,7 @@ export default function SideBar() {
             </li>
 
             <li className="nav-item">
-                <a className="nav-link" href="/drivers_list">
-                    <i className="fas fa-fw fa-users"></i>
-                    <span>Drivers List</span></a>
-            </li>
-
-            <li className="nav-item">
-                <a className="nav-link" href="tables.html">
+                <a className="nav-link" href="/movement_plan">
                     <i className="fas fa-fw fa-table"></i>
                     <span>Generate Movement Plan</span></a>
             </li>

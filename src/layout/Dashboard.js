@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import api from './../api';
 import MaintenanceChart from '../components/dashboard/MaintenanceChart';
 import { saveAs } from 'file-saver';
+import SideBar from '../components/navigation/SideBar'
+import Navbar from '../components/navigation/Navbar'
 
 export default function Dashboard() {
     const [smallData, setSmallData] = useState([]);
@@ -26,12 +28,17 @@ export default function Dashboard() {
     }, []
     )
     return (
+    <div id="wrapper">
+        <SideBar />
+        <div id="content-wrapper" className="d-flex flex-column">
+            <div id="content">
+            <Navbar />
         <div className="container-fluid">
             <PageHeader />
             <div className="row">
                 {smallData.map((item) => (
                     <div className="col-xl-3 col-md-6 mb-4">
-                        <DataItem1 title={item.title} value={item.value}/>
+                        <DataItem1 key={item.title} title={item.title} value={item.value}/>
                     </div>
                 ))}
             </div>
@@ -40,7 +47,7 @@ export default function Dashboard() {
                             <div className="card shadow mb-4">
                                 <div
                                     className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 className="m-0 font-weight-bold text-my-primary">Earnings Overview</h6>
+                                    <h6 className="m-0 font-weight-bold text-my-primary">Maintenance Rate</h6>
                                     <div className="dropdown no-arrow">
                                         <a className="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -65,5 +72,8 @@ export default function Dashboard() {
                         </div>
             </div>
         </div>
+        </div>
+            </div>
+            </div>
     )
 }
