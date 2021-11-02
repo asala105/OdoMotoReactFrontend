@@ -1,7 +1,7 @@
-import React from 'react'
-import LoginForm from '../components/LoginForm'
-import RegisterForm from '../components/RegisterForm'
-import SvgComponent2 from '../components/loginLogo'
+import React from 'react';
+import LoginForm from '../components/LoginForm';
+import RegisterForm from '../components/RegisterForm';
+import SvgComponent2 from '../components/loginLogo';
 
 export default function LoginPage() {
     return (
