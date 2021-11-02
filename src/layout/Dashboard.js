@@ -6,7 +6,9 @@ import api from './../api';
 import MaintenanceChart from '../components/dashboard/MaintenanceChart';
 import { saveAs } from 'file-saver';
 import SideBar from '../components/navigation/SideBar'
-import Navbar from '../components/navigation/Navbar'
+import Navbar from '../components/navigation/Navbar';
+
+import { useSelector } from 'react-redux';
 
 export default function Dashboard() {
     const [smallData, setSmallData] = useState([]);
@@ -22,9 +24,11 @@ export default function Dashboard() {
             console.log(error);
         })
     }
-
+    const token = useSelector((state) => state?.token);
+    console.log('token', token);
     useEffect(() => {
-        get_data()
+        get_data();
+        
     }, []
     )
     return (

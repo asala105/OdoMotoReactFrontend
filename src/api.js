@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://127.0.0.1:8000/api';
+const BASE_URL = 'https://odomoto.tk/api';
 
 const cookie = localStorage.getItem('access_token');
 

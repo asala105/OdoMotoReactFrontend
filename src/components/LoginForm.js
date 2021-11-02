@@ -6,7 +6,6 @@ import {updateUserProfile} from '../redux/slices/userSlice';
 import { store } from '../redux/store';
 import { useDispatch } from "react-redux";
 
-
 export default function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -46,7 +45,7 @@ export default function LoginForm() {
                 rank: response.data.user.rank,
                 user_type_id: response.data.user.date_of_birth
             }}));
-            history.replace('/OdoMotoReactFrontend')
+            history.push('/')
         })
         .catch((error) => {
             console.log(error.response.data.errors);

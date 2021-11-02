@@ -1,4 +1,5 @@
 (function($) {
+  "use strict"; // Start of use strict
 
   // Toggle the side navigation
   $("#sidebarToggle, #sidebarToggleTop").on('click', function(e) {
@@ -52,4 +53,4 @@
     e.preventDefault();
   });
 
-})(jQuery);
+})(jQuery); // End of use strict

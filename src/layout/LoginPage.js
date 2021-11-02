@@ -6,7 +6,7 @@ import SvgComponent2 from '../components/loginLogo';
 export default function LoginPage() {
     return (
         <div className="Login-component" 
-        style={{ backgroundImage: `url("bg3.png")`, marginLeft:10, marginRight:10 }}>
+        style={{ backgroundImage: `url("bg3.jpg")`, marginLeft:10, marginRight:10 }}>
         <div className="container" >
             <div className="row justify-content-center">
                 <div className="col-xl-10 col-lg-12 col-md-9">

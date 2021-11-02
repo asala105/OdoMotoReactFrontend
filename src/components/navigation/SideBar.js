@@ -1,21 +1,22 @@
 import React from 'react';
 import SvgComponent from './logo';
+import { Link } from 'react-router-dom';
 
 export default function SideBar() {
     return (
         <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/OdoMotoReactFrontend">
+            <Link className="sidebar-brand d-flex align-items-center justify-content-center" to="/">
                 <SvgComponent style={{marginTop: 40, marginBottom:5}}/>
-            </a>
+            </Link>
 
             <hr className="sidebar-divider my-0 mt-5"/>
 
             <li className="nav-item active">
-                <a className="nav-link" href="/OdoMotoReactFrontend">
+                <Link className="nav-link" to="/">
                     <i className="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
-                </a>
+                </Link>
             </li>
 
             <hr className="sidebar-divider"/>
@@ -25,58 +26,58 @@ export default function SideBar() {
             </div>
 
             <li className="nav-item">
-                <a className="nav-link collapsed" href="/OdoMotoReactFrontend" data-toggle="collapse" data-target="#collapseTwo"
+                <Link className="nav-link collapsed" to="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i className="fas fa-fw fa-calendar-alt"></i>
                     <span>Attendance and leaves</span>
-                </a>
+                </Link>
                 <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div className="bg-white py-2 collapse-inner rounded">
                         <h6 className="collapse-header">Attendance and leaves:</h6>
-                        <a className="collapse-item" href="/OdoMotoReactFrontend/attendance_record">Attendance Records</a>
-                        <a className="collapse-item" href="/OdoMotoReactFrontend/leaves_requests">Leaves Requests</a>
+                        <Link className="collapse-item" to="/attendance_record">Attendance Records</Link>
+                        <Link className="collapse-item" to="/leaves_requests">Leaves Requests</Link>
                     </div>
                 </div>
             </li>
 
             <li className="nav-item">
-                <a className="nav-link collapsed" href="/OdoMotoReactFrontend" data-toggle="collapse" data-target="#collapseUtilities"
+                <Link className="nav-link collapsed" to="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i className="fas fa-fw fa-briefcase"></i>
                     <span>Users</span>
-                </a>
+                </Link>
                 <div id="collapseUtilities" className="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div className="bg-white py-2 collapse-inner rounded">
                         <h6 className="collapse-header">Users</h6>
                         
-                        <a className="collapse-item" href="/OdoMotoReactFrontend/add_user">Add User</a>
-                        <a className="collapse-item" href="/OdoMotoReactFrontend/drivers_list">Drivers List</a>
+                        <Link className="collapse-item" to="/add_user">Add User</Link>
+                        <Link className="collapse-item" to="/drivers_list">Drivers List</Link>
                     </div>
                 </div>
             </li>
 
             <li className="nav-item">
-                <a className="nav-link collapsed" href="/OdoMotoReactFrontend" data-toggle="collapse" data-target="#collapsePages"
+                <Link className="nav-link collapsed" to="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i className="fas fa-fw fa-car"></i>
                     <span>Vehicles</span>
-                </a>
+                </Link>
                 <div id="collapsePages" className="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div className="bg-white py-2 collapse-inner rounded">
                         <h6 className="collapse-header">Vehicles</h6>
-                        <a className="collapse-item" href="/OdoMotoReactFrontend/add_vehicle">Add Vehicle</a>
-                        <a className="collapse-item" href="/OdoMotoReactFrontend/vehicles_list">Vehicles List</a>
-                        <a className="collapse-item" href="/OdoMotoReactFrontend/inspection">Inspection Schedule</a>
-                        <a className="collapse-item" href="/OdoMotoReactFrontend/fuel_and_odometer_data">Fuel and Odometer Records</a>
+                        <Link className="collapse-item" to="/add_vehicle">Add Vehicle</Link>
+                        <Link className="collapse-item" to="/vehicles_list">Vehicles List</Link>
+                        <Link className="collapse-item" to="/inspection">Inspection Schedule</Link>
+                        <Link className="collapse-item" to="/fuel_and_odometer_data">Fuel and Odometer Records</Link>
                     </div>
                 </div>
             </li>
 
             <li className="nav-item">
-                <a className="nav-link" href="/OdoMotoReactFrontend/movement_plan">
+                <Link className="nav-link" to="/movement_plan">
                     <i className="fas fa-fw fa-table"></i>
-                    <span>Generate Movement Plan</span></a>
+                    <span>Generate Movement Plan</span></Link>
             </li>
 
             <hr className="sidebar-divider d-none d-md-block"/>

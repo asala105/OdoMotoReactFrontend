@@ -17,6 +17,7 @@ import FuelAndOdometerData from "./layout/FuelAndOdometerData";
 import AddUser from "./layout/AddUser";
 import AddVehicle from "./layout/AddVehicle";
 import LoginPage from "./layout/LoginPage";
+import MovementPlan from "./layout/MovementPlan";
 
 function App() {
   return (
@@ -25,32 +26,35 @@ function App() {
       <Route path="/login">
         <LoginPage />
       </Route>
-      <RouteSwitcher exact path="/OdoMotoReactFrontend">
+      <RouteSwitcher exact path="/">
         <Dashboard/>
       </RouteSwitcher>
-      <RouteSwitcher exact path="/OdoMotoReactFrontend/inspection">
+      <RouteSwitcher exact path="/inspection">
         <InspectionSchedule />
       </RouteSwitcher>
-      <RouteSwitcher exact path="/OdoMotoReactFrontend/leaves_requests">
+      <RouteSwitcher exact path="/leaves_requests">
         <LeavesRequests/>
       </RouteSwitcher>
-      <RouteSwitcher exact path="/OdoMotoReactFrontend/attendance_record">
+      <RouteSwitcher exact path="/attendance_record">
         <AttendanceRecord/>
       </RouteSwitcher>
-      <RouteSwitcher exact path="/OdoMotoReactFrontend/vehicles_list">
+      <RouteSwitcher exact path="/vehicles_list">
         <Vehicles/>
       </RouteSwitcher>
-      <RouteSwitcher exact path="/OdoMotoReactFrontend/drivers_list">
+      <RouteSwitcher exact path="/drivers_list">
         <DriverList/>
       </RouteSwitcher>
-      <RouteSwitcher exact path="/OdoMotoReactFrontend/fuel_and_odometer_data">
+      <RouteSwitcher exact path="/fuel_and_odometer_data">
         <FuelAndOdometerData/>
       </RouteSwitcher>
-      <RouteSwitcher exact path="/OdoMotoReactFrontend/add_user">
+      <RouteSwitcher exact path="/add_user">
         <AddUser/>
       </RouteSwitcher>
-      <RouteSwitcher exact path="/OdoMotoReactFrontend/add_vehicle">
+      <RouteSwitcher exact path="/add_vehicle">
         <AddVehicle/>
+      </RouteSwitcher>
+      <RouteSwitcher exact path="/movement_plan">
+        <MovementPlan/>
       </RouteSwitcher>
     </Switch>
   </Provider>

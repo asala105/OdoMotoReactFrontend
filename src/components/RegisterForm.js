@@ -11,23 +11,24 @@ export default function RegisterForm() {
     function handleRegister(event) {
         event.preventDefault();
         const registerOrganizationData = {
-            //email: email,
+            name: organization
         };
-        const registerDepartmentData = {
-            //email: email,
-            };
-        api.registerOrganization(registerOrganizationData, {
-            headers: {
-            Accept: "application/json",
-            "content-type": "application/json",
-        },
-        })
-        .then((response) => {
-            console.log(response);
-        })
-        .catch((error) => {
-            console.log(error.response.data.errors);
-        });
+        // api.registerOrganization(registerOrganizationData, {
+        //     headers: {
+        //     Accept: "application/json",
+        //     "content-type": "application/json",
+        // },
+        // })
+        // .then((response) => {
+        //     console.log(response);
+        //     const registerDepartmentData = {
+        //         organization_id: response.data.organization.id,
+        //         name: department
+        //     };
+        // })
+        // .catch((error) => {
+        //     console.log(error.response.data.errors);
+        // });
     }
 
     function handleDepChange(event) {
