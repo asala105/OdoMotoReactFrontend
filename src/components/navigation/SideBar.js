@@ -5,14 +5,14 @@ export default function SideBar() {
     return (
         <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+            <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/OdoMotoReactFrontend/">
                 <SvgComponent style={{marginTop: 40, marginBottom:5}}/>
             </a>
 
             <hr className="sidebar-divider my-0 mt-5"/>
 
             <li className="nav-item active">
-                <a className="nav-link" href="/">
+                <a className="nav-link" href="/OdoMotoReactFrontend/">
                     <i className="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
@@ -25,7 +25,7 @@ export default function SideBar() {
             </div>
 
             <li className="nav-item">
-                <a className="nav-link collapsed" href="/" data-toggle="collapse" data-target="#collapseTwo"
+                <a className="nav-link collapsed" href="/OdoMotoReactFrontend/" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i className="fas fa-fw fa-calendar-alt"></i>
                     <span>Attendance and leaves</span>
@@ -40,7 +40,7 @@ export default function SideBar() {
             </li>
 
             <li className="nav-item">
-                <a className="nav-link collapsed" href="/" data-toggle="collapse" data-target="#collapseUtilities"
+                <a className="nav-link collapsed" href="/OdoMotoReactFrontend/" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i className="fas fa-fw fa-briefcase"></i>
                     <span>Users</span>
@@ -57,7 +57,7 @@ export default function SideBar() {
             </li>
 
             <li className="nav-item">
-                <a className="nav-link collapsed" href="/" data-toggle="collapse" data-target="#collapsePages"
+                <a className="nav-link collapsed" href="/OdoMotoReactFrontend/" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i className="fas fa-fw fa-car"></i>
                     <span>Vehicles</span>

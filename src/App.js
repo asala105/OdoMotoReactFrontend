@@ -27,7 +27,7 @@ function AppPages(){
     <div id="content-wrapper" className="d-flex flex-column">
         <div id="content">
             <Navbar />
-            <Route exact path="/" component={Dashboard}/>
+            <Route exact path="/OdoMotoReactFrontend/" component={Dashboard}/>
             <Route exact path="/inspection" component={InspectionSchedule}/>
             <Route exact path="/leaves_requests" component={LeavesRequests}/>
             <Route exact path="/attendance_record" component={AttendanceRecord}/>
