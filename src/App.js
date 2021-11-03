@@ -18,6 +18,7 @@ import AddUser from "./layout/AddUser";
 import AddVehicle from "./layout/AddVehicle";
 import LoginPage from "./layout/LoginPage";
 import MovementPlan from "./layout/MovementPlan";
+import RegisterAdmin from './layout/RegisterAdmin';
 
 function App() {
   return (
@@ -56,6 +57,9 @@ function App() {
       <RouteSwitcher exact path="/movement_plan">
         <MovementPlan/>
       </RouteSwitcher>
+      <Route exact path="/register_admin_account">
+        <RegisterAdmin />
+      </Route>
     </Switch>
   </Provider>
   );

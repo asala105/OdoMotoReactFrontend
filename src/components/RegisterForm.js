@@ -28,10 +28,12 @@ export default function RegisterForm() {
             api.RegisterDepartment(registerDepartmentData)
             .then((response) => {
                 console.log(response.data);
+                history.push({pathname:'/register_admin_account',state:{department:response.data.department.id}});
             })
             .catch((error) => {
                 console.log(error.response.data.errors);
             });
+
         })
         .catch((error) => {
             console.log(error.response.data.errors);
