@@ -4,13 +4,11 @@ import api from '../api';
 import {updateToken} from '../redux/slices/tokenSlice';
 import {updateUserProfile} from '../redux/slices/userSlice';
 import { store } from '../redux/store';
-import { useDispatch } from "react-redux";
 
 export default function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
-    const dispatch = useDispatch();
     const history = useHistory();
 
     function handleLogin(event) {

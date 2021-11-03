@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import api from '../../api';
-import {useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-export default function RegisterAdminForm(props) {
+export default function RegisterAdminForm() {
+    const org = useSelector((state) => state?.org);
     const [fname, setFname] = useState('');
     const [lname, setLname] = useState('');
     const [email, setEmail] = useState('');
@@ -11,18 +13,12 @@ export default function RegisterAdminForm(props) {
     const [rank, setRank] = useState(0);
     const [userType, setUserType] = useState(1);
     const [manager, setManager] = useState(null);
-    const [department, setDepartment] = useState(props.department);
+    const [department, setDepartment] = useState(org?.RegOrgVals?.depId? org.RegOrgVals.depId : null);
     const [error, setError] = useState('');
     const history = useHistory();
-
+    
     function handleSubmit(){
         console.log('Submit');
-        if(fname === '' || lname === '' || email === '' 
-        || phone === '' || email === '' || date === null
-        || rank === 0 || department === null){
-            setError('All fields are required');
-        }
-        else{
             let dataToSend = {
                 first_name: fname,
                 last_name: lname,
@@ -34,22 +30,16 @@ export default function RegisterAdminForm(props) {
                 manager_id: manager,
                 department_id: department,
             };
-            api.RegisterUser(dataToSend)
+            console.log(dataToSend);
+            api.RegisterAdmin(dataToSend)
             .then((response) => {
-                console.log('Added successfully');
-                history.push('/');
+                console.log(response.data);
+                history.push('/login');
             })
             .catch((error) => {
                 console.log(error);
             });
-            console.log(dataToSend);
-        }
     }
-
-    useEffect(() => {
-        console.log(props.department);
-    },[])
-
     return (
         <form className="user">
             <div className="row">
@@ -88,9 +78,9 @@ export default function RegisterAdminForm(props) {
                     id="rank" placeholder="Enter the employee's rank" onChange={(event)=>{setRank(event.target.value)}} required/>
             </div>
             </div>
-            <button className="btn btn-my-primary btn-block" onClick={handleSubmit}>
+            <a className="btn btn-my-primary btn-block" onClick={handleSubmit}>
                 Save
-            </button>
+            </a>
         </form>
     )
 }

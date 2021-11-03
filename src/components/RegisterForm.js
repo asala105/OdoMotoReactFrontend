@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useHistory } from "react-router-dom";
 import api from '../api';
+import {updateOrg} from '../redux/slices/orgSlice'
+import { store } from '../redux/store';
 
 export default function RegisterForm() {
     const [department, setDepartment] = useState('');
@@ -28,7 +30,11 @@ export default function RegisterForm() {
             api.RegisterDepartment(registerDepartmentData)
             .then((response) => {
                 console.log(response.data);
-                history.push({pathname:'/register_admin_account',state:{department:response.data.department.id}});
+                store.dispatch(updateOrg({ RegOrgVals: {
+                    orgId: registerDepartmentData.organization_id,
+                    depId: response.data.department.id,
+                }}));
+                history.push('/register_admin_account');
             })
             .catch((error) => {
                 console.log(error.response.data.errors);

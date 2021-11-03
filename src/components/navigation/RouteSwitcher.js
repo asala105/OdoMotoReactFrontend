@@ -4,7 +4,6 @@ import { Redirect, Route } from "react-router-dom";
 
 export default function RouteSwitcher({ path, exact, children }) {
     const token = useSelector((state) => state?.token);
-    console.log('token', token);
     return token?.tokenVal ? (
         <Route path={path} exact={exact}>
           {children}

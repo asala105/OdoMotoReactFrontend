@@ -6,9 +6,8 @@ import RegisterAdminForm from '../components/users/RegisterAdminForm';
 import { useLocation } from "react-router-dom";
 
 
-export default function RegisterAdmin(props) {
-    const location = useLocation();
-    const [department, setDepartment] = useState(location.state.department)
+export default function RegisterAdmin() {
+
     return (
         <div className="Login-component" 
         style={{ backgroundImage: `url("bg3.jpg")`, marginLeft:10, marginRight:10 }}>
@@ -26,7 +25,7 @@ export default function RegisterAdmin(props) {
                                         <div className="text-center">
                                             <h1 className="h4 text-gray-900 mb-4">Register An Admin Account</h1>
                                         </div>
-                                        <RegisterAdminForm department={department}/>
+                                        <RegisterAdminForm/>
                                     </div>
                                 </div>
                             </div>
