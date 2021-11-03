@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/OdoMotoReactFrontend/static/css/main.ae43ea23.chunk.css",
-    "main.js": "/OdoMotoReactFrontend/static/js/main.efde19aa.chunk.js",
-    "main.js.map": "/OdoMotoReactFrontend/static/js/main.efde19aa.chunk.js.map",
+    "main.js": "/OdoMotoReactFrontend/static/js/main.336d1fc6.chunk.js",
+    "main.js.map": "/OdoMotoReactFrontend/static/js/main.336d1fc6.chunk.js.map",
     "runtime-main.js": "/OdoMotoReactFrontend/static/js/runtime-main.449e31f4.js",
     "runtime-main.js.map": "/OdoMotoReactFrontend/static/js/runtime-main.449e31f4.js.map",
     "static/css/2.3f20c574.chunk.css": "/OdoMotoReactFrontend/static/css/2.3f20c574.chunk.css",
-    "static/js/2.2ed41d6f.chunk.js": "/OdoMotoReactFrontend/static/js/2.2ed41d6f.chunk.js",
-    "static/js/2.2ed41d6f.chunk.js.map": "/OdoMotoReactFrontend/static/js/2.2ed41d6f.chunk.js.map",
+    "static/js/2.e7048d86.chunk.js": "/OdoMotoReactFrontend/static/js/2.e7048d86.chunk.js",
+    "static/js/2.e7048d86.chunk.js.map": "/OdoMotoReactFrontend/static/js/2.e7048d86.chunk.js.map",
     "index.html": "/OdoMotoReactFrontend/index.html",
     "static/css/2.3f20c574.chunk.css.map": "/OdoMotoReactFrontend/static/css/2.3f20c574.chunk.css.map",
     "static/css/main.ae43ea23.chunk.css.map": "/OdoMotoReactFrontend/static/css/main.ae43ea23.chunk.css.map",
-    "static/js/2.2ed41d6f.chunk.js.LICENSE.txt": "/OdoMotoReactFrontend/static/js/2.2ed41d6f.chunk.js.LICENSE.txt",
+    "static/js/2.e7048d86.chunk.js.LICENSE.txt": "/OdoMotoReactFrontend/static/js/2.e7048d86.chunk.js.LICENSE.txt",
     "static/media/font-awesome.min.css": "/OdoMotoReactFrontend/static/media/fontawesome-webfont.f691f37e.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.449e31f4.js",
     "static/css/2.3f20c574.chunk.css",
-    "static/js/2.2ed41d6f.chunk.js",
+    "static/js/2.e7048d86.chunk.js",
     "static/css/main.ae43ea23.chunk.css",
-    "static/js/main.efde19aa.chunk.js"
+    "static/js/main.336d1fc6.chunk.js"
   ]
 }
