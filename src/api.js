@@ -8,7 +8,8 @@ const token = {
     headers: {
         'Accept': 'application/json',
         'Content-type': 'application/json',
-        'Authorization': 'Bearer ' + cookie
+        'Authorization': 'Bearer ' + cookie,
+        'Access-Control-Allow-Origin': '*'
     },
 }
 

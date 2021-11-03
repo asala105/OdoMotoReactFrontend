@@ -13,22 +13,22 @@ export default function RegisterForm() {
         const registerOrganizationData = {
             name: organization
         };
-        // api.registerOrganization(registerOrganizationData, {
-        //     headers: {
-        //     Accept: "application/json",
-        //     "content-type": "application/json",
-        // },
-        // })
-        // .then((response) => {
-        //     console.log(response);
-        //     const registerDepartmentData = {
-        //         organization_id: response.data.organization.id,
-        //         name: department
-        //     };
-        // })
-        // .catch((error) => {
-        //     console.log(error.response.data.errors);
-        // });
+        api.RegisterOrganization(registerOrganizationData, {
+            headers: {
+            Accept: "application/json",
+            "content-type": "application/json",
+        },
+        })
+        .then((response) => {
+            console.log(response.data);
+            const registerDepartmentData = {
+                organization_id: response.data.organization.id,
+                name: department
+            };
+        })
+        .catch((error) => {
+            console.log(error.response.data.errors);
+        });
     }
 
     function handleDepChange(event) {

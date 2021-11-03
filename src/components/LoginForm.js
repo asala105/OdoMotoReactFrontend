@@ -23,6 +23,7 @@ export default function LoginForm() {
             headers: {
             Accept: "application/json",
             "content-type": "application/json",
+            'Access-Control-Allow-Origin': '*'
         },
         })
         .then((response) => {
@@ -43,17 +44,12 @@ export default function LoginForm() {
                 manager: response.data.user.manager!==null?response.data.user.manager.first_name + ' ' + response.data.user.manager.last_name:null,
                 phone_nb: response.data.user.phone_nb,
                 rank: response.data.user.rank,
-                user_type_id: response.data.user.date_of_birth
+                user_type_id: response.data.user.user_type_id
             }}));
             history.push('/')
         })
         .catch((error) => {
-            console.log(error.response.data.errors);
-            if (email === "" || password === "") {
-                setErrors(error.response.data.errors);
-            } else {
-                alert("incorrect username or password");
-            }
+            console.log(error);
         });
     }
 
