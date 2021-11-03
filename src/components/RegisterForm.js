@@ -25,6 +25,13 @@ export default function RegisterForm() {
                 organization_id: response.data.organization.id,
                 name: department
             };
+            api.RegisterDepartment(registerDepartmentData)
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.log(error.response.data.errors);
+            });
         })
         .catch((error) => {
             console.log(error.response.data.errors);
@@ -32,11 +39,11 @@ export default function RegisterForm() {
     }
 
     function handleDepChange(event) {
-        setOrganization(event.target.value);
+        setDepartment(event.target.value);
     }
 
     function handleOrgChange(event) {
-        setDepartment(event.target.value);
+        setOrganization(event.target.value);
     }
 
     return (
