@@ -112,5 +112,8 @@ export default{
     axios.get(`${BASE_URL}/fuel_odometer_values`,token),
     
     generatePlan: () =>
-    axios.get(`${BASE_URL}/auto_generate`,token)
+    axios.get(`${BASE_URL}/auto_generate`,token),
+
+    getProfile: () =>
+    axios.get(`${BASE_URL}/user_profile`,token),
 }

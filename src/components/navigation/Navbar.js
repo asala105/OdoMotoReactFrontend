@@ -36,12 +36,22 @@ export default function Navbar() {
             console.log(error);
         });
     }
+
+    // function toggleSidebar(){
+    //     document.body.classList.toggle("sidebar-toggled");
+    //     document.querySelector(".sidebar").classList.toggle("toggled");
+    //     if (document.querySelector(".sidebar").classList.contains("toggled")) {
+    //     document.querySelector('.sidebar .collapse')
+    //     .collapse('hide');
+    //     };
+    // }
     useEffect(() => {
         allNotifications();
     },[]);
     return (
                 <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                    <button id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">
+                    <button 
+                     id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">
                         <i className="fa fa-bars"></i>
                     </button>
 
@@ -76,10 +86,10 @@ export default function Navbar() {
 
                             <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a className="dropdown-item" href="#">
+                                <Link className="dropdown-item" to="profile">
                                     <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
-                                </a>
+                                </Link>
                                 <div className="dropdown-divider"></div>
                                 <a onClick={handleLogout} className="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

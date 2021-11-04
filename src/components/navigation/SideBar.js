@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function SideBar() {
     return (
-        <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion collapse show" id="accordionSidebar">
 
             <Link className="sidebar-brand d-flex align-items-center justify-content-center" to="/">
                 <SvgComponent style={{marginTop: 40, marginBottom:5}}/>
@@ -52,6 +52,7 @@ export default function SideBar() {
                         <h6 className="collapse-header">Users</h6>
                         
                         <Link className="collapse-item" to="/add_user">Add User</Link>
+                        <Link className="collapse-item" to="/users_list">Users List</Link>
                         <Link className="collapse-item" to="/drivers_list">Drivers List</Link>
                     </div>
                 </div>

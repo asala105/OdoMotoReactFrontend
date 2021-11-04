@@ -6,7 +6,6 @@ import { Route, Switch } from "react-router-dom";
 import RouteSwitcher from './components/navigation/RouteSwitcher';
 import { Provider } from 'react-redux'
 import store from './redux/store';
-import AuthPages from './components/navigation/AuthPages';
 import Dashboard from "./layout/Dashboard";
 import InspectionSchedule from "./layout/InspectionSchedule";
 import LeavesRequests from "./layout/LeavesRequests";
@@ -20,6 +19,8 @@ import AddVehicle from "./layout/AddVehicle";
 import LoginPage from "./layout/LoginPage";
 import MovementPlan from "./layout/MovementPlan";
 import RegisterAdmin from './layout/RegisterAdmin';
+import UsersList from "./layout/UsersList";
+import Profile from "./layout/Profile";
 
 function App() {
   return (
@@ -60,6 +61,12 @@ function App() {
       </RouteSwitcher>
       <RouteSwitcher exact path="/notifications">
         <NotificationsList/>
+      </RouteSwitcher>
+      <RouteSwitcher exact path="/users_list">
+        <UsersList/>
+      </RouteSwitcher>
+      <RouteSwitcher exact path="/profile">
+        <Profile />
       </RouteSwitcher>
       <Route exact path="/register_admin_account">
         <RegisterAdmin />

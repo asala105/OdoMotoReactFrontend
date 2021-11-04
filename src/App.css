@@ -10,6 +10,32 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+ .profile-head h5{
+  color: #333;
+}
+.profile-head h6{
+  color: #005959;
+}
+.profile-edit-btn{
+  border: none;
+  border-radius: 1.5rem;
+  width: 100%;
+  padding: 2%;
+  font-weight: 600;
+  color: #6c757d;
+  cursor: pointer;
+}
+.proile-rating{
+  font-size: 12px;
+  color: #818182;
+  margin-top: 5%;
+}
+.proile-rating span{
+  color: #495057;
+  font-size: 15px;
+  font-weight: 600;
+}
+
 body, html {
   height: 100%;
   margin: 0;
