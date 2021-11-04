@@ -42,7 +42,8 @@ export default function LoginForm() {
                 manager: response.data.user.manager!==null?response.data.user.manager.first_name + ' ' + response.data.user.manager.last_name:null,
                 phone_nb: response.data.user.phone_nb,
                 rank: response.data.user.rank,
-                user_type_id: response.data.user.user_type_id
+                user_type_id: response.data.user.user_type_id,
+                organization_id: response.data.user.organization_id
             }}));
             history.push('/')
         })

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://odomoto.tk/api';
+const BASE_URL = 'http://localhost:8000/api';
 
 const cookie = localStorage.getItem('access_token');
 
@@ -18,11 +18,14 @@ export default{
     Login: (login) =>
     axios.post(`${BASE_URL}/login`,login),
 
+    Logout: () =>
+    axios.get(`${BASE_URL}/logout`, token),
+
     RegisterOrganization: (data) =>
-    axios.post(`${BASE_URL}/register_organization`, data, token),
+    axios.post(`${BASE_URL}/register_organization`, data),
 
     RegisterDepartment: (data) =>
-    axios.post(`${BASE_URL}/add_department`, data, token),
+    axios.post(`${BASE_URL}/add_department`, data),
 
     RegisterAdmin: (data) =>
     axios.post(`${BASE_URL}/register`, data),
@@ -79,5 +82,35 @@ export default{
     axios.post(`${BASE_URL}/get_filtered_leaves`,data,token),
 
     FleetData: () =>
-    axios.get(`${BASE_URL}/fleet_requests`,token)
+    axios.get(`${BASE_URL}/fleet_requests`,token),
+
+    getNotifications: ()=>
+    axios.get(`${BASE_URL}/get_notifications`,token),
+
+    markRead: (id)=>
+    axios.get(`${BASE_URL}/mark_read/${id}`,token),
+
+    rejectAttendance: (id) =>
+    axios.get(`${BASE_URL}/reject_attendance/${id}`,token),
+
+    rejectLeave: (id) =>
+    axios.get(`${BASE_URL}/reject_leave/${id}`,token),
+
+    acceptAttendanceByManager: (id) =>
+    axios.get(`${BASE_URL}/approve_attendance/${id}`, token),
+
+    acceptAttendanceByHR: (id) =>
+    axios.get(`${BASE_URL}/approve_attendance_hr/${id}`, token),
+
+    acceptLeaveByManager: (id) =>
+    axios.get(`${BASE_URL}/approve_leave/${id}`, token),
+
+    acceptLeaveByHR: (id) =>
+    axios.get(`${BASE_URL}/approve_leave_hr/${id}`, token),
+
+    getFuelOdometer: () =>
+    axios.get(`${BASE_URL}/fuel_odometer_values`,token),
+    
+    generatePlan: () =>
+    axios.get(`${BASE_URL}/auto_generate`,token)
 }

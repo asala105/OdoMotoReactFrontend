@@ -14,6 +14,7 @@ export default function RegisterAdminForm() {
     const [userType, setUserType] = useState(1);
     const [manager, setManager] = useState(null);
     const [department, setDepartment] = useState(org?.RegOrgVals?.depId? org.RegOrgVals.depId : null);
+    const [organization, setOrganization] = useState(org?.RegOrgVals?.orgId? org.RegOrgVals.orgId : null);
     const [error, setError] = useState('');
     const history = useHistory();
     
@@ -29,6 +30,7 @@ export default function RegisterAdminForm() {
                 user_type_id: userType,
                 manager_id: manager,
                 department_id: department,
+                organization_id: organization,
             };
             console.log(dataToSend);
             api.RegisterAdmin(dataToSend)

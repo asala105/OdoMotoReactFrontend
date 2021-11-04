@@ -15,7 +15,7 @@
   margin: -0.5em;
 }
 .react-calendar--doubleView .react-calendar__viewContainer > * {
-  width: 50%;
+  width: 85%;
   margin: 0.5em;
 }
 .react-calendar,
@@ -33,7 +33,7 @@
 }
 .react-calendar button:enabled:hover {
   cursor: pointer;
-  border-radius: 50%;
+  border-radius: 85%;
 }
 .react-calendar__navigation {
   height: 44px;
@@ -95,7 +95,7 @@
 }
 .react-calendar__tile--now {
   background: #ffff76;
-  border-radius: 50%;
+  border-radius: 85%;
 }
 .react-calendar__tile--now:enabled:hover,
 .react-calendar__tile--now:enabled:focus {
@@ -111,7 +111,7 @@
 .react-calendar__tile--active {
   background: #006edc;
   color: white;
-  border-radius: 50%;
+  border-radius: 85%;
 }
 .react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {
@@ -123,59 +123,59 @@
 
 .highlight5 {
   background: #f08080;
-  border-radius: 50%;
+  border-radius: 85%;
   margin-left: 0.05px;
   margin-right: 0.05px;
 }
 /* .highlight2 {
   background: #add8e6;
-  border-radius: 50%;
+  border-radius: 85%;
 } */
 .highlight1 {
   background: #fffacd;
-  border-radius: 50%;
+  border-radius: 85%;
 }
 /* .highlight4 {
   background: #87cefa;
-  border-radius: 50%;
+  border-radius: 85%;
 } */
 .highlight4 {
   background: #20b2aa;
-  border-radius: 50%;
+  border-radius: 85%;
 }
 /* .highlight6 {
   background: #ffa07a;
-  border-radius: 50%;
+  border-radius: 85%;
 }
 .highlight7 {
   background: #00fa9a;
-  border-radius: 50%;
+  border-radius: 85%;
 }
 .highlight8 {
   background: #ffe4e1;
-  border-radius: 50%;
+  border-radius: 85%;
 }
 .highlight9 {
   background: #da70d6;
-  border-radius: 50%;
+  border-radius: 85%;
 }
 .highlight10 {
   background: #fff5ee;
-  border-radius: 50%;
+  border-radius: 85%;
 }
 .highlight11 {
   background: #87ceeb;
-  border-radius: 50%;
+  border-radius: 85%;
 }
 .highlight12 {
   background: #f5deb3;
-  border-radius: 50%;
+  border-radius: 85%;
 }
 .highlight13 {
   background: #f0f8ff;
-  border-radius: 50%;
+  border-radius: 85%;
 }
 .highlight14 {
   background: #ff7f50;
-  border-radius: 50%;
+  border-radius: 85%;
 } */

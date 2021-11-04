@@ -101,15 +101,6 @@ export default function AttendanceRecord() {
                             <div className="card shadow mb-4">
                                 <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 className="m-0 font-weight-bold text-my-primary">Attendance Record For {date}</h6>
-                                    {/* <div className="dropdown">
-                                        <a className="btn btn-my-primary btn-block dropdown-toggle" data-toggle="dropdown">
-                                            Filter
-                                        </a>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" onClick={viewPending}>Pending</a>
-                                            <a class="dropdown-item" onClick={viewRejected}>Rejected</a>
-                                        </div>
-                                    </div> */}
                                 </div>
                                 <div className="card-body">
                                     <div className="table-responsive">
@@ -125,7 +116,8 @@ export default function AttendanceRecord() {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                    {records.map((dd)=><AttendanceItem className="pending"
+                                                    {records.map((dd)=>
+                                                    <AttendanceItem
                                                     key = {dd.id}
                                                     id = {dd.id}
                                                     driver={dd.user!==null?dd.user.first_name + ' ' + dd.user.last_name:""}

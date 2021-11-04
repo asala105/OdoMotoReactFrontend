@@ -1,12 +1,44 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import undraw_profile_1 from '../../img/svgComponents/undraw_profile_1'
-import undraw_profile_2 from '../../img/svgComponents/undraw_profile_2'
-import undraw_profile_3 from '../../img/svgComponents/undraw_profile_3'
-import undraw_profile from '../../img/svgComponents/undraw_profile'
+import { useSelector } from 'react-redux';
+import api from '../../api';
+import {Link} from 'react-router-dom';
+import NotificationItem from '../NotificationItem';
+import {deleteToken} from '../../redux/slices/tokenSlice';
+import {deleteUser} from '../../redux/slices/userSlice';
+import { store } from '../../redux/store';
 
 export default function Navbar() {
+    const user = useSelector((state) => state?.user);
+    const [notifications, setNotifications] = useState([]);
+    const [counter,setCount] = useState(0);
+    const items = notifications.slice(0, 6)
+    function allNotifications() {
+        api.getNotifications()
+        .then(response => {
+            setNotifications(response.data.notifications);
+            setCount(response.data.unread);
+            console.log(response.data);
+          })
+          .catch(error => {
+              console.log('Error');
+          });
+    }
+    function handleLogout(){
+        api.Logout()
+        .then(response => {
+            console.log(response.data);
+            store.dispatch(deleteToken());
+            store.dispatch(deleteUser());
+            localStorage.clear();
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    }
+    useEffect(() => {
+        allNotifications();
+    },[]);
     return (
                 <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <button id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">
@@ -15,74 +47,21 @@ export default function Navbar() {
 
                     <ul className="navbar-nav ml-auto">
 
-                        <li className="nav-item dropdown no-arrow d-sm-none">
-                            <a className="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i className="fas fa-search fa-fw"></i>
-                            </a>
-
-                            <div className="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form className="form-inline mr-auto w-100 navbar-search">
-                                    <div className="input-group">
-                                        <input type="text" className="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2"/>
-                                        <div className="input-group-append">
-                                            <button className="btn btn-my-primary" type="button">
-                                                <i className="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-
                         <li className="nav-item dropdown no-arrow mx-1">
                             <a className="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i className="fas fa-bell fa-fw"></i>
-                                <span className="badge badge-danger badge-counter">3+</span>
+                                <span className="badge badge-danger badge-counter">{counter}</span>
                             </a>
                             <div className="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="alertsDropdown">
                                 <h6 className="dropdown-header">
                                     Alerts Center
                                 </h6>
-                                <a className="dropdown-item d-flex align-items-center" href="#">
-                                    <div className="mr-3">
-                                        <div className="icon-circle bg-primary">
-                                            <i className="fas fa-file-alt text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className="small text-gray-500">December 12, 2019</div>
-                                        <span className="font-weight-bold">A new monthly report is ready to download!</span>
-                                    </div>
-                                </a>
-                                <a className="dropdown-item d-flex align-items-center" href="#">
-                                    <div className="mr-3">
-                                        <div className="icon-circle bg-success">
-                                            <i className="fas fa-donate text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className="small text-gray-500">December 7, 2019</div>
-                                        $290.29 has been deposited into your account!
-                                    </div>
-                                </a>
-                                <a className="dropdown-item d-flex align-items-center" href="#">
-                                    <div className="mr-3">
-                                        <div className="icon-circle bg-warning">
-                                            <i className="fas fa-exclamation-triangle text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className="small text-gray-500">December 2, 2019</div>
-                                        Spending Alert: We've noticed unusually high spending for your account.
-                                    </div>
-                                </a>
-                                <a className="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                                {items.map((item)=>
+                                <NotificationItem id={item.id} title={item.title} body={item.body} is_read={item.is_read}/>
+                                )}
+                                <Link className="dropdown-item text-center small text-gray-500" to="/notifications">Show All Alerts</Link>
                             </div>
                         </li>
 
@@ -91,7 +70,7 @@ export default function Navbar() {
                         <li className="nav-item dropdown no-arrow">
                             <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span className="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span className="mr-2 d-none d-lg-inline text-gray-600 small">{user.userProfile.first_name + ' ' + user.userProfile.last_name}</span>
                                 <i className="fas fa-user"></i>
                             </a>
 
@@ -101,16 +80,8 @@ export default function Navbar() {
                                     <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
-                                <a className="dropdown-item" href="#">
-                                    <i className="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a className="dropdown-item" href="#">
-                                    <i className="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
                                 <div className="dropdown-divider"></div>
-                                <a className="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a onClick={handleLogout} className="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>

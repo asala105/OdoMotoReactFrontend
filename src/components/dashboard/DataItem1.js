@@ -14,7 +14,7 @@ export default function DataItem1(props) {
                         </div>
                     </div>
                     <div className="col-auto">
-                        <i className="fas fa-calendar fa-2x text-gray-300"></i>
+                        <i className="fas fa-database fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>

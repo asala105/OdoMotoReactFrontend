@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import api from '../../api';
 import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export default function AddVehicleForm() {
+    const user = useSelector((state) => state?.user);
     const [recNum, setRecNum] = useState('');
     const [plate, setPlate] = useState('');
     const [fuel, setFuel] = useState('');
@@ -14,17 +16,11 @@ export default function AddVehicleForm() {
     const [ownership, setOwnership] = useState('');
     const [licenseReq, setLicenseReq] = useState('');
     const [driverList, setDriverList] = useState([]);
+    const [organization, setOrganization] = useState(user?.userProfile?.organization_id? user.userProfile.organization_id : null);
     const [error, setError] = useState('');
     const history = useHistory();
 
     function handleSubmit(){
-        console.log('Submit');
-        if(recNum === '' || plate === '' || fuel === '' 
-        || odometer === '' || model === '' || weight === ''
-        || category === '' || driver === '' || ownership === ''){
-            setError('All fields are required');
-        }
-        else{
             let dataToSend = {
                 registration_code: recNum,
                 plate_number: plate,
@@ -36,18 +32,17 @@ export default function AddVehicleForm() {
                 fuel_level: fuel,
                 is_rented: ownership,
                 driver_license_requirements: licenseReq,
+                organization_id: organization
             };
             console.log(dataToSend);
             api.addVehicle(dataToSend)
             .then((response) => {
                 console.log('Added successfully');
                 history.push('/vehicles_list');
-                window.location.reload();
             })
             .catch((error) => {
                 console.log(error);
             });
-        }
     }
     function getData(){
         api.driverData()

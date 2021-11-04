@@ -7,19 +7,23 @@ import MaintenanceChart from '../components/dashboard/MaintenanceChart';
 import { saveAs } from 'file-saver';
 import SideBar from '../components/navigation/SideBar'
 import Navbar from '../components/navigation/Navbar';
-
+import FuelChart from '../components/dashboard/FuelChart';
 import { useSelector } from 'react-redux';
 
 export default function Dashboard() {
     const [smallData, setSmallData] = useState([]);
     const [maintenanceChartLabels, setMaintenanceChartLabels] = useState([]);
     const [maintenanceChartData, setMaintenanceChartData] = useState([]);
+    const [fuelChartLabels, setFuelChartLabels] = useState([]);
+    const [fuelChartData, setFuelChartData] = useState([]);
     function get_data(){
         api.DashboardData().then(function(response){
             console.log(response);
             setSmallData(response.data.small_data);
             setMaintenanceChartLabels(response.data.maintenance_chart.ChartLabels);
             setMaintenanceChartData(response.data.maintenance_chart.ChartData);
+            setFuelChartLabels(response.data.fuel_consumption.ChartLabels);
+            setFuelChartData(response.data.fuel_consumption.ChartData);
         }).catch((error)=>{
             console.log(error);
         })
@@ -52,24 +56,25 @@ export default function Dashboard() {
                                 <div
                                     className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 className="m-0 font-weight-bold text-my-primary">Maintenance Rate</h6>
-                                    <div className="dropdown no-arrow">
-                                        <a className="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i className="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div className="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div className="dropdown-header">Dropdown Header:</div>
-                                            <a className="dropdown-item" href="#">Action</a>
-                                            <a className="dropdown-item" href="#">Another action</a>
-                                            <div className="dropdown-divider"></div>
-                                            <a className="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div className="card-body">
                                     <div className="chart-area">
                                         <MaintenanceChart MLabels={maintenanceChartLabels} MData={maintenanceChartData}/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+            <div className="row">
+                        <div className="col">
+                            <div className="card shadow mb-4">
+                                <div
+                                    className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 className="m-0 font-weight-bold text-my-primary">Fuel Consumption</h6>
+                                </div>
+                                <div className="card-body">
+                                    <div className="chart-area">
+                                        <FuelChart FLabels={fuelChartLabels} FData={fuelChartData}/>
                                     </div>
                                 </div>
                             </div>

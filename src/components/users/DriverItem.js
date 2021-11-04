@@ -22,7 +22,7 @@ export default function DriverItem(props) {
             <td>{props.manager}</td>
             <td>{props.department}</td>
             <td>
-                <a href="#" className="btn btn-success btn-circle mr-1">
+                <a href="#" className="btn btn-success btn-circle mr-1" >
                     <i className="fas fa-edit"></i>
                 </a>
                 <a href="#" className="btn btn-danger btn-circle ml-1" onClick={()=> handleDelete(props.id)}>

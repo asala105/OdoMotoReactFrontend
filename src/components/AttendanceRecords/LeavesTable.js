@@ -2,6 +2,10 @@ import React from 'react'
 import LeavesItem from './LeavesItem'
 
 export default function LeavesTable(props) {
+    function removeRow(id){
+        document.getElementById(id).remove();
+        props.onReject(id);
+    }
     return (
     <div className="table-responsive">
         <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -22,6 +26,8 @@ export default function LeavesTable(props) {
                     from = {leave.leave_from_date}
                     till = {leave.leave_till_date}
                     type = {leave.leave_type}
+                    status = {leave.status_id}
+                    onRemove = {removeRow}
                 />)}
             </tbody>
         </table>

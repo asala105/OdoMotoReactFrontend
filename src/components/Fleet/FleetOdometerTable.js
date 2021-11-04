@@ -3,11 +3,12 @@ import api from '../../api'
 import FuelOdometerItem from './FuelOdometerItem';
 
 export default function FleetOdometerTable() {
-        const [vehicles, setVehicles] = useState([]);
+        const [data, setData] = useState([]);
         function get_data(){
-            api.VehicleData().then(function(response){
+            api.getFuelOdometer()
+            .then(function(response){
                 console.log(response);
-                setVehicles(response.data.data);
+                setData(response.data.data);
             }).catch((error)=>{
                 console.log(error);
             })
@@ -35,18 +36,17 @@ export default function FleetOdometerTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    {vehicles.map(vehicle => 
+                    {data.map(item => 
                         <FuelOdometerItem
                         onRemove={function decline() {
-                            removeRow(vehicle.id);
+                            removeRow(item.id);
                           }}
-                         id={vehicle.id} 
-                            driver ={vehicle.driver !==null? vehicle.driver.first_name + ' ' + vehicle.driver.last_name: " "}
-                            category ={vehicle.category}
-                            reg_code = {vehicle.registration_code}
-                            plate = { vehicle.plate_number}
-                            model = { vehicle.model}
-                            weight = { vehicle.weight}
+                         id={item.id} 
+                            vehicle ={item.vehicle !==null? item.vehicle.registration_code:null}
+                            date ={item.vehicle !==null? item.fleet.date:null}
+                            fuel_before = {item.fuel_before_trip}
+                            fuel_after = {item.fuel_after_trip}
+                            odometer_before = {item.odometer_before_trip}
                     />)}
                 </tbody>
             </table>

@@ -12,7 +12,8 @@ export interface User {
     manager?: string|null,
     phone_nb?: string|null,
     rank?: number|null,
-    user_type_id?: number|null
+    user_type_id?: number|null,
+    organization_id?: string|null,
   }
 }
 

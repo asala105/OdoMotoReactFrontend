@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import api from '../../api';
 import {useHistory} from 'react-router-dom'
+import { useSelector } from 'react-redux';
 
 export default function AddUserForm() {
+    const user = useSelector((state) => state?.user);
     const [fname, setFname] = useState('');
     const [lname, setLname] = useState('');
     const [email, setEmail] = useState('');
@@ -14,17 +16,11 @@ export default function AddUserForm() {
     const [department, setDepartment] = useState(null);
     const [managerList, setManagerList] = useState([]);
     const [departmentList, setDepartmentList] = useState([]);
+    const [organization, setOrganization] = useState(user?.userProfile?.organization_id? user.userProfile.organization_id : null);
     const [error, setError] = useState('');
     const history = useHistory();
 
     function handleSubmit(){
-        console.log('Submit');
-        if(fname === '' || lname === '' || email === '' 
-        || phone === '' || email === '' || date === null
-        || rank === 0 || manager === null || department === null){
-            setError('All fields are required');
-        }
-        else{
             let dataToSend = {
                 first_name: fname,
                 last_name: lname,
@@ -35,18 +31,17 @@ export default function AddUserForm() {
                 user_type_id: userType,
                 manager_id: manager,
                 department_id: department,
+                organization_id: organization
             };
+            console.log(dataToSend);
             api.RegisterUser(dataToSend)
             .then((response) => {
-                console.log('Added successfully');
+                console.log(response);
                 history.push('/drivers_list');
-                window.location.reload();
             })
             .catch((error) => {
                 console.log(error);
             });
-            console.log(dataToSend);
-        }
     }
     function getData(){
         api.userData()
@@ -145,9 +140,9 @@ export default function AddUserForm() {
                 </select>
             </div>
             </div>
-            <button className="btn btn-my-primary btn-block" onClick={handleSubmit}>
+            <a className="btn btn-my-primary btn-block" onClick={handleSubmit}>
                 Save
-            </button>
+            </a>
         </form>
     )
 }

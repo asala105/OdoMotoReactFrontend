@@ -15,6 +15,7 @@ import Vehicles from "./layout/Vehicles";
 import DriverList from "./layout/DriverList";
 import FuelAndOdometerData from "./layout/FuelAndOdometerData";
 import AddUser from "./layout/AddUser";
+import NotificationsList from "./layout/NotificationsList";
 import AddVehicle from "./layout/AddVehicle";
 import LoginPage from "./layout/LoginPage";
 import MovementPlan from "./layout/MovementPlan";
@@ -56,6 +57,9 @@ function App() {
       </RouteSwitcher>
       <RouteSwitcher exact path="/movement_plan">
         <MovementPlan/>
+      </RouteSwitcher>
+      <RouteSwitcher exact path="/notifications">
+        <NotificationsList/>
       </RouteSwitcher>
       <Route exact path="/register_admin_account">
         <RegisterAdmin />
