@@ -6,7 +6,6 @@ export default function VehiclesTable() {
     const [vehicles, setVehicles] = useState([]);
     function get_data(){
         api.VehicleData().then(function(response){
-            console.log(response);
             setVehicles(response.data.data);
         }).catch((error)=>{
             console.log(error);
@@ -42,9 +41,7 @@ export default function VehiclesTable() {
             <tbody>
                 {vehicles.map(vehicle => 
                     <VehicleItem
-                    onRemove={function decline() {
-                        removeRow(vehicle.id);
-                      }}
+                    onRemove={removeRow}
                      id={vehicle.id} 
                         driver ={vehicle.driver !==null? vehicle.driver.first_name + ' ' + vehicle.driver.last_name: " "}
                         category ={vehicle.category}

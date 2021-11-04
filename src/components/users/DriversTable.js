@@ -38,9 +38,7 @@ export default function DriversTable() {
             <tbody>
                 {drivers.map(driver => 
                     <DriverItem key={driver.id}
-                    onRemove={function decline() {
-                        removeRow(driver.id);
-                      }}
+                    onRemove={removeRow}
                      id={driver.id} 
                         name ={driver.first_name + ' ' + driver.last_name}
                         email ={driver.email}

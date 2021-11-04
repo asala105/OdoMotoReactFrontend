@@ -6,7 +6,7 @@ export default function VehicleItem(props) {
         api.deleteVehicle(id)
         .then((response) => {
             console.log(response.data);
-            props.onRemove();
+            props.onRemove(id);
         })
         .catch((error) => {
             alert("Oops! An error has occurred :(");
