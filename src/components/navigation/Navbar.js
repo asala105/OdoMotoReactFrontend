@@ -12,13 +12,14 @@ export default function Navbar() {
     const user = useSelector((state) => state?.user);
     const [notifications, setNotifications] = useState([]);
     const [counter,setCount] = useState(0);
-    const items = notifications.slice(0, 6)
+    const [items,setItems] = useState([]);
     function allNotifications() {
         api.getNotifications()
         .then(response => {
             setNotifications(response.data.notifications);
             setCount(response.data.unread);
             console.log(response.data);
+            setItems(notifications.slice(0,6));
           })
           .catch(error => {
               console.log('Error');
