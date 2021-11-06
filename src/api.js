@@ -27,6 +27,9 @@ export default{
     RegisterDepartment: (data) =>
     axios.post(`${BASE_URL}/add_department`, data),
 
+    RegisterDepartment2: (data) =>
+        axios.post(`${BASE_URL}/add_department`, data, token),
+
     RegisterAdmin: (data) =>
     axios.post(`${BASE_URL}/register`, data),
 
