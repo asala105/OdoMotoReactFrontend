@@ -47,6 +47,7 @@ export default function FleetOdometerTable() {
                             fuel_before = {item.fuel_before_trip}
                             fuel_after = {item.fuel_after_trip}
                             odometer_before = {item.odometer_before_trip}
+                            odometer_after = {item.odometer_after_trip}
                     />)}
                 </tbody>
             </table>
