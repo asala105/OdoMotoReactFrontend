@@ -6,7 +6,6 @@ export default function NotificationItem(props) {
     function handleRead(id){
         api.markRead(id)
         .then(response => {
-            console.log(response.data);
             setIsRead(1);
           })
           .catch(error => {
@@ -14,7 +13,7 @@ export default function NotificationItem(props) {
           });
     }
     return (
-        <a className="dropdown-item d-flex align-items-center" href="#" onClick={()=>handleRead(props.id)}>
+        <a className="dropdown-item d-flex align-items-center" onClick={()=>handleRead(props.id)}>
             <div className="mr-3">
                 <div className="icon-circle bg-my-primary">
                     <i className="fas fa-file-alt text-white"></i>
@@ -22,7 +21,7 @@ export default function NotificationItem(props) {
             </div>
             <div>
                 <div className="text-gray-500">{props.title}</div>
-                    <span id={props.id} className={props.is_read?"":"font-weight-bold"}>{props.body}</span>
+                    <span id={props.id} className={isRead?"":"font-weight-bold"}>{props.body}</span>
             </div>
         </a>
     )

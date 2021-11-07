@@ -4,7 +4,6 @@ import DataItem1 from '../components/dashboard/DataItem1';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import api from './../api';
 import MaintenanceChart from '../components/dashboard/MaintenanceChart';
-import { saveAs } from 'file-saver';
 import SideBar from '../components/navigation/SideBar'
 import Navbar from '../components/navigation/Navbar';
 import FuelChart from '../components/dashboard/FuelChart';
@@ -30,7 +29,7 @@ export default function Dashboard() {
     }
     const token = useSelector((state) => state?.token);
     useEffect(() => {
-        get_data();
+        setTimeout(get_data(),1000);
         
     }, [])
     return (

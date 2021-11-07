@@ -16,10 +16,8 @@ export default function Navbar() {
     function allNotifications() {
         api.getNotifications()
         .then(response => {
-            setNotifications(response.data.notifications);
+            setNotifications(response.data.notifications.slice(0,6));
             setCount(response.data.unread);
-            console.log(response.data);
-            setItems(notifications.slice(0,6));
           })
           .catch(error => {
               console.log('Error');
@@ -28,7 +26,6 @@ export default function Navbar() {
     function handleLogout(){
         api.Logout()
         .then(response => {
-            console.log(response.data);
             store.dispatch(deleteToken());
             store.dispatch(deleteUser());
             localStorage.clear();
@@ -69,7 +66,7 @@ export default function Navbar() {
                                 <h6 className="dropdown-header">
                                     Alerts Center
                                 </h6>
-                                {items.map((item)=>
+                                {notifications.map((item)=>
                                 <NotificationItem id={item.id} title={item.title} body={item.body} is_read={item.is_read}/>
                                 )}
                                 <Link className="dropdown-item text-center small text-gray-500" to="/notifications">Show All Alerts</Link>
