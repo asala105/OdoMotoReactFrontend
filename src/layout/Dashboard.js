@@ -17,7 +17,6 @@ export default function Dashboard() {
     const [fuelChartData, setFuelChartData] = useState([]);
     function get_data(){
         api.DashboardData().then(function(response){
-            console.log(response);
             setSmallData(response.data.small_data);
             setMaintenanceChartLabels(response.data.maintenance_chart.ChartLabels);
             setMaintenanceChartData(response.data.maintenance_chart.ChartData);

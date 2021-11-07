@@ -15,7 +15,7 @@ export default function AttendanceRecord() {
     const [date, setDate] = useState(today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate());
     const [records, setRecords] = useState([]);
     const [markedDates, setMarkedDates] = useState([]);
-
+    const [loading, setLoading] = useState(false);
     const setClass = (date) => {
         const dateobj =
         markedDates.find((x) => {
@@ -50,9 +50,11 @@ export default function AttendanceRecord() {
     function handleClick (value){
         let dd = value.getFullYear()+ '-'+ (value.getMonth()+1) + '-' + value.getDate()
         setDate(dd);
+        setLoading(true);
         api.getAttendanceByDate(dd)
         .then(function(response){
             setRecords(response.data.data);
+            setLoading(false);
         }).catch((error)=>{
             console.log(error);
         })
@@ -103,32 +105,37 @@ export default function AttendanceRecord() {
                                     <h6 className="m-0 font-weight-bold text-my-primary">Attendance Record For {date}</h6>
                                 </div>
                                 <div className="card-body">
-                                    <div className="table-responsive">
-                                        <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
-                                            <thead>
-                                                <tr>
-                                                    <th>Driver</th>
-                                                    <th>Date</th>
-                                                    <th>From</th>
-                                                    <th>Till</th>
-                                                    <th>Status</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                    {records.map((dd)=>
-                                                    <AttendanceItem
-                                                    key = {dd.id}
-                                                    id = {dd.id}
-                                                    driver={dd.user!==null?dd.user.first_name + ' ' + dd.user.last_name:""}
-                                                    date={dd.date}
-                                                    from={dd.working_from}
-                                                    till={dd.working_to}
-                                                    status={dd.status.status}
-                                                    />)}
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                    {loading? <h6 className="m-0 text-my-primary">Loading...</h6>:
+                                    records.length>0?
+                                        <div className="table-responsive">
+                                            <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Driver</th>
+                                                        <th>Date</th>
+                                                        <th>From</th>
+                                                        <th>Till</th>
+                                                        <th>Status</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                        {records.map((dd)=>
+                                                        <AttendanceItem
+                                                        key = {dd.id}
+                                                        id = {dd.id}
+                                                        driver={dd.user!==null?dd.user.first_name + ' ' + dd.user.last_name:""}
+                                                        date={dd.date}
+                                                        from={dd.working_from}
+                                                        till={dd.working_to}
+                                                        status={dd.status.status}
+                                                        />)}
+                                                </tbody>
+                                            </table>
+                                        </div>:
+                                        <h6 className="m-0 text-my-primary">There are no Attendance records on {date}</h6>
+                                
+}
                                 </div>
                             </div>
                         </div>

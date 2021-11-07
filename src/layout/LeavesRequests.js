@@ -10,6 +10,7 @@ export default function LeavesRequests() {
     const [data, setData] = useState([]);
     const [statusId, setStatusId] = useState('');
     const [driverId, setDriverId] = useState('');
+    const [loading, setLoading] = useState(false);
     const user = useSelector((state) => state?.user);
 
     function getData(){
@@ -31,10 +32,11 @@ export default function LeavesRequests() {
             status_id:statusId,
             user_id:driverId
         }
+        setLoading(true);
         api.getFilteredLeaves(dataToSend)
         .then(function(response){
             setData(response.data.Leaves);
-            console.log(response.data.Leaves);
+            setLoading(false);
         })
     }
 
@@ -78,7 +80,11 @@ export default function LeavesRequests() {
                             </div>
                         </div>
                         <div className="card-body">
-                            <LeavesTable onReject={removeFromData} data={data}/>
+                            
+                            {loading? <h6 className="m-0 text-my-primary">Loading...</h6>:
+                                    data.length>0?
+                                    <LeavesTable onReject={removeFromData} data={data}/>:
+                                <h6 className="m-0 text-my-primary">No records were found</h6>}
                         </div>
                     </div>
                 </div>
