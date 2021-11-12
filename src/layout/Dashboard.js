@@ -28,8 +28,7 @@ export default function Dashboard() {
     }
     const token = useSelector((state) => state?.token);
     useEffect(() => {
-        setTimeout(get_data(),1000);
-        
+        get_data();
     }, [])
     return (
     <div id="wrapper">

@@ -21,58 +21,60 @@ import MovementPlan from "./layout/MovementPlan";
 import RegisterAdmin from './layout/RegisterAdmin';
 import UsersList from "./layout/UsersList";
 import Profile from "./layout/Profile";
+import { HashRouter as Router } from "react-router-dom";
 
 function App() {
   return (
-    <Provider store={store}>
-    <Switch>
-      <Route path="/login">
-        <LoginPage />
-      </Route>
-      <RouteSwitcher exact path="/">
-        <Dashboard/>
-      </RouteSwitcher>
-      <RouteSwitcher exact path="/inspection">
-        <InspectionSchedule />
-      </RouteSwitcher>
-      <RouteSwitcher exact path="/leaves_requests">
-        <LeavesRequests/>
-      </RouteSwitcher>
-      <RouteSwitcher exact path="/attendance_record">
-        <AttendanceRecord/>
-      </RouteSwitcher>
-      <RouteSwitcher exact path="/vehicles_list">
-        <Vehicles/>
-      </RouteSwitcher>
-      <RouteSwitcher exact path="/drivers_list">
-        <DriverList/>
-      </RouteSwitcher>
-      <RouteSwitcher exact path="/fuel_and_odometer_data">
-        <FuelAndOdometerData/>
-      </RouteSwitcher>
-      <RouteSwitcher exact path="/add_user">
-        <AddUser/>
-      </RouteSwitcher>
-      <RouteSwitcher exact path="/add_vehicle">
-        <AddVehicle/>
-      </RouteSwitcher>
-      <RouteSwitcher exact path="/movement_plan">
-        <MovementPlan/>
-      </RouteSwitcher>
-      <RouteSwitcher exact path="/notifications">
-        <NotificationsList/>
-      </RouteSwitcher>
-      <RouteSwitcher exact path="/users_list">
-        <UsersList/>
-      </RouteSwitcher>
-      <RouteSwitcher exact path="/profile">
-        <Profile />
-      </RouteSwitcher>
-      <Route exact path="/register_admin_account">
-        <RegisterAdmin />
-      </Route>
-    </Switch>
-  </Provider>
+      <Provider store={store}>
+      <Switch>
+        <Route path="/login">
+          <LoginPage />
+        </Route>
+        <RouteSwitcher exact path="/">
+          <Dashboard/>
+        </RouteSwitcher>
+        <RouteSwitcher exact path="/inspection">
+          <InspectionSchedule />
+        </RouteSwitcher>
+        <RouteSwitcher exact path="/leaves_requests">
+          <LeavesRequests/>
+        </RouteSwitcher>
+        <RouteSwitcher exact path="/attendance_record">
+          <AttendanceRecord/>
+        </RouteSwitcher>
+        <RouteSwitcher exact path="/vehicles_list">
+          <Vehicles/>
+        </RouteSwitcher>
+        <RouteSwitcher exact path="/drivers_list">
+          <DriverList/>
+        </RouteSwitcher>
+        <RouteSwitcher exact path="/fuel_and_odometer_data">
+          <FuelAndOdometerData/>
+        </RouteSwitcher>
+        <RouteSwitcher exact path="/add_user">
+          <AddUser/>
+        </RouteSwitcher>
+        <RouteSwitcher exact path="/add_vehicle">
+          <AddVehicle/>
+        </RouteSwitcher>
+        <RouteSwitcher exact path="/movement_plan">
+          <MovementPlan/>
+        </RouteSwitcher>
+        <RouteSwitcher exact path="/notifications">
+          <NotificationsList/>
+        </RouteSwitcher>
+        <RouteSwitcher exact path="/users_list">
+          <UsersList/>
+        </RouteSwitcher>
+        <RouteSwitcher exact path="/profile">
+          <Profile />
+        </RouteSwitcher>
+        <Route exact path="/register_admin_account">
+          <RegisterAdmin />
+        </Route>
+      </Switch>
+    </Provider>
+
   );
 }
 

@@ -36,11 +36,11 @@ export default function AddUserForm() {
             console.log(dataToSend);
             api.RegisterUser(dataToSend)
             .then((response) => {
-                console.log(response);
-                history.push('/drivers_list');
+                history.push('/users_list');
+                //alert("user added successfully, he/she may login using their email and date of birth as a password");
             })
             .catch((error) => {
-                console.log(error);
+                alert("An error occurred make sure all the fields are filled and the value are valid");
             });
     }
     function getData(){
