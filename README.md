@@ -16,6 +16,17 @@ complete all these activities faster, easier, and more precisely than ever befor
 - field service management(movement plans and fleet requests),
 - and driver management(Attendance and leaves records).
 
+### Frontend Implementation
+
+Kindly note that this is the frontend of the admin and HR side, implemented using React.
+The website allows the admin to:
+- store, edit and delete the users, vehicles and inspection information
+- view attendance and leaves records
+- approve/reject attendance records
+
+As for the HR they can:
+- view attendance and leaves records
+- approve/reject attendance records
 
 ## Future Work
 
