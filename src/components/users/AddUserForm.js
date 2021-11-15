@@ -36,8 +36,8 @@ export default function AddUserForm() {
             console.log(dataToSend);
             api.RegisterUser(dataToSend)
             .then((response) => {
+                alert('user added successfully');
                 history.push('/users_list');
-                //alert("user added successfully, he/she may login using their email and date of birth as a password");
             })
             .catch((error) => {
                 alert("An error occurred make sure all the fields are filled and the value are valid");

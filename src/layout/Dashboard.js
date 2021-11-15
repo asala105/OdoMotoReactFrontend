@@ -15,6 +15,7 @@ export default function Dashboard() {
     const [maintenanceChartData, setMaintenanceChartData] = useState([]);
     const [fuelChartLabels, setFuelChartLabels] = useState([]);
     const [fuelChartData, setFuelChartData] = useState([]);
+    const [loading, setLoading] = useState(true);
     function get_data(){
         api.DashboardData().then(function(response){
             setSmallData(response.data.small_data);
@@ -22,6 +23,7 @@ export default function Dashboard() {
             setMaintenanceChartData(response.data.maintenance_chart.ChartData);
             setFuelChartLabels(response.data.fuel_consumption.ChartLabels);
             setFuelChartData(response.data.fuel_consumption.ChartData);
+            setLoading(false);
         }).catch((error)=>{
             console.log(error);
         })
@@ -39,7 +41,8 @@ export default function Dashboard() {
         <div className="container-fluid">
             <PageHeader />
             <div className="row">
-                {smallData.map((item) => (
+                {loading? null:
+                smallData.map((item) => (
                     <div className="col-xl-3 col-md-6 mb-4">
                         <DataItem1 key={item.title} title={item.title} value={item.value}/>
                     </div>
@@ -53,9 +56,11 @@ export default function Dashboard() {
                                     <h6 className="m-0 font-weight-bold text-my-primary">Maintenance Rate</h6>
                                 </div>
                                 <div className="card-body">
+                                {loading? <h6 className="m-0 text-my-primary">Loading...</h6>:
                                     <div className="chart-area">
                                         <MaintenanceChart MLabels={maintenanceChartLabels} MData={maintenanceChartData}/>
                                     </div>
+                                }   
                                 </div>
                             </div>
                         </div>
@@ -68,9 +73,11 @@ export default function Dashboard() {
                                     <h6 className="m-0 font-weight-bold text-my-primary">Fuel Consumption</h6>
                                 </div>
                                 <div className="card-body">
+                                {loading? <h6 className="m-0 text-my-primary">Loading...</h6>:
                                     <div className="chart-area">
                                         <FuelChart FLabels={fuelChartLabels} FData={fuelChartData}/>
                                     </div>
+                                }
                                 </div>
                             </div>
                         </div>
