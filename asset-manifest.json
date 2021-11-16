@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/OdoMotoReactFrontend/static/css/main.39426719.chunk.css",
-    "main.js": "/OdoMotoReactFrontend/static/js/main.600733cb.chunk.js",
-    "main.js.map": "/OdoMotoReactFrontend/static/js/main.600733cb.chunk.js.map",
+    "main.js": "/OdoMotoReactFrontend/static/js/main.1be5a7c1.chunk.js",
+    "main.js.map": "/OdoMotoReactFrontend/static/js/main.1be5a7c1.chunk.js.map",
     "runtime-main.js": "/OdoMotoReactFrontend/static/js/runtime-main.449e31f4.js",
     "runtime-main.js.map": "/OdoMotoReactFrontend/static/js/runtime-main.449e31f4.js.map",
     "static/css/2.3f20c574.chunk.css": "/OdoMotoReactFrontend/static/css/2.3f20c574.chunk.css",
@@ -19,6 +19,6 @@
     "static/css/2.3f20c574.chunk.css",
     "static/js/2.0ae9b48a.chunk.js",
     "static/css/main.39426719.chunk.css",
-    "static/js/main.600733cb.chunk.js"
+    "static/js/main.1be5a7c1.chunk.js"
   ]
 }
