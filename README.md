@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+## OdoMoto (the admin and HR side)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The demand on fleet management systems is increasing with the growing number of businesses 
+converting to online and increased demand for advanced delivery services. Such systems allow the 
+users to track the performance of commercial vehicles. It can take the shape of vehicle tracking, 
+diagnostics, maintenance, driver performance monitoring, and fuel usage monitoring, among other 
+things. Vehicle diagnostics and maintenance, driver performance, fuel consumption, and movement 
+plans will be the emphasis of this project.
 
-## Available Scripts
+These duties were formerly performed manually, requiring time-consuming record-keeping, and 
+filing, as well as the possibility of human error. Using a fleet management system (like OdoMoto), you can 
+complete all these activities faster, easier, and more precisely than ever before. This website/app is tailored to perform functions like:
 
-In the project directory, you can run:
+- fuel and odometer records,
+- vehicles data and inspection schedule,
+- field service management(movement plans and fleet requests),
+- and driver management(Attendance and leaves records).
 
-### `npm start`
+### Frontend Implementation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Kindly note that this is the frontend of the admin and HR side, implemented using React.
+The website allows the admin to:
+- store, edit and delete the users, vehicles and inspection information
+- view attendance and leaves records
+- approve/reject attendance records
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+As for the HR they can:
+- view attendance and leaves records
+- approve/reject attendance records
 
-### `npm test`
+## Future Work
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Now that the foundation of the project is setup, I'll be working on additional features like
+- routing and route optimization,
+- transforming the digital approvals into printable documents with signatures,
+- more on data analytics
