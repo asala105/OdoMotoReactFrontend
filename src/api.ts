@@ -13,8 +13,7 @@ const token = {
     },
 }
 
-export default{
-
+export const api = {
     Login: (login) =>
     axios.post(`${BASE_URL}/login`,login),
 

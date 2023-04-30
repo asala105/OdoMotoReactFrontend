@@ -1,15 +1,14 @@
-import moment from 'moment';
 import AttendanceForm from '../components/AttendanceRecords/AttendanceForm'
 import React, {useState} from 'react'
 import Calendar from 'react-calendar';
 // import 'react-calendar/dist/Calendar.css';
 import SideBar from '../components/navigation/SideBar'
 import Navbar from '../components/navigation/Navbar'
-import api from '../api'
+import {api} from '../api'
 import AttendanceItem from '../components/AttendanceRecords/AttendanceItem';
 import './calendar.css'
 
-export default function AttendanceRecord() {
+export function AttendanceRecord() {
     const today = new Date();
     const [value, onChange] = useState(today);
     const [date, setDate] = useState(today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate());
@@ -29,19 +28,19 @@ export default function AttendanceRecord() {
 
     async function getData(value){
         if (value.filter==='1' && value.driver!==""){
-            api.getAttendance(value)
-            .then(function(response){
-                setMarkedDates(response.data.marked_dates);
-            }).catch((error)=>{
-                console.log(error);
-            })
+            // api.getAttendance(value)
+            // .then(function(response){
+            //     setMarkedDates(response.data.marked_dates);
+            // }).catch((error)=>{
+            //     console.log(error);
+            // })
         }else if(value.filter==='2' && value.driver!==""){
-            api.getLeaves(value)
-            .then(function(response){
-                setMarkedDates(response.data.marked_dates);
-            }).catch((error)=>{
-                console.log(error);
-            })
+            // api.getLeaves(value)
+            // .then(function(response){
+            //     setMarkedDates(response.data.marked_dates);
+            // }).catch((error)=>{
+            //     console.log(error);
+            // })
         }else{
             return
         }
@@ -51,13 +50,13 @@ export default function AttendanceRecord() {
         let dd = value.getFullYear()+ '-'+ (value.getMonth()+1) + '-' + value.getDate()
         setDate(dd);
         setLoading(true);
-        api.getAttendanceByDate(dd)
-        .then(function(response){
-            setRecords(response.data.data);
-            setLoading(false);
-        }).catch((error)=>{
-            console.log(error);
-        })
+        // api.getAttendanceByDate(dd)
+        // .then(function(response){
+        //     setRecords(response.data.data);
+        //     setLoading(false);
+        // }).catch((error)=>{
+        //     console.log(error);
+        // })
 
     }
 

@@ -1,22 +1,33 @@
-import React, {useState, useEffect} from 'react'
-import api from '../api'
-import FleetItem from '../components/Fleet/FleetItem';
-import LeavesTable from '../components/AttendanceRecords/LeavesTable'
+import {useState, useEffect} from 'react'
+import {api} from '../api'
 import SideBar from '../components/navigation/SideBar'
 import Navbar from '../components/navigation/Navbar'
 import NotificationItem from '../components/NotificationItem';
 
-export default function NotificationsList() {
-    const [notifications, setNotifications] = useState([]);
+type Notification = {
+    id: string;
+title: string;
+body: string;
+is_read: boolean;
+}
+
+interface Response {
+    data : {
+        notifications: Notification[];
+    }
+}
+export function NotificationsList() {
+    const [notifications, setNotifications] = useState<Notification[] | []>([]);
 
     function allNotifications() {
-        api.getNotifications()
-        .then(response => {
-            setNotifications(response.data.notifications);
-          })
-          .catch(error => {
-              console.log('Error');
-          });
+        // api.getNotifications()
+        // .then(response => {
+        //     setNotifications(response.data.notifications);
+        //   })
+        //   .catch(error => {
+        //       console.log('Error');
+        //   });
+        return
     }
     useEffect(() => {
         allNotifications();
@@ -38,7 +49,7 @@ export default function NotificationsList() {
                         <div className="card-body">
                             <div className="table-responsive text-nowrap">
                                 {notifications.map((item)=>
-                                <NotificationItem id={item.id} title={item.title} body={item.body} is_read={item.is_read}/>
+                                <NotificationItem key={item.id} id={item.id} title={item.title} body={item.body} is_read={item.is_read}/>
                                 )}
                             </div>
                         </div>

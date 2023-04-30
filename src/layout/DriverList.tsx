@@ -1,9 +1,8 @@
-import React from 'react'
+import DriversTable from '../components/users/DriversTable';
 import SideBar from '../components/navigation/SideBar'
 import Navbar from '../components/navigation/Navbar'
-import FleetOdometerTable from '../components/Fleet/FleetOdometerTable'
 
-export default function FuelAndOdometerData() {
+export function DriverList() {
     return (
         <div id="wrapper">
         <SideBar />
@@ -14,10 +13,10 @@ export default function FuelAndOdometerData() {
             <div className="col">
                 <div className="card shadow mb-4">
                     <div className="card-header py-3">
-                        <h6 className="m-0 font-weight-bold text-my-primary">Fuel and Odometer data</h6>
+                        <h6 className="m-0 font-weight-bold text-my-primary">Drivers List</h6>
                     </div>
                     <div className="card-body">
-                        <FleetOdometerTable />
+                        <DriversTable/>
                     </div>
                 </div>
             </div>
@@ -25,5 +24,5 @@ export default function FuelAndOdometerData() {
         </div>
         </div>
         </div>
-    )
+    );
 }

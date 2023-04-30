@@ -1,28 +1,29 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import api from '../api';
+import {api} from '../api';
 import InspectionForm from '../components/vehicles/InspectionForm';
 import InspectionTasks from '../components/vehicles/InspectionTasks';
 import SideBar from '../components/navigation/SideBar'
 import Navbar from '../components/navigation/Navbar'
 
 
-export default function InspectionSchedule() {
-    const [value, onChange] = useState(new Date());
-    const [date, setDate] = useState();
+export function InspectionSchedule() {
+    const todayDate = new Date();
+    const todayDateString = `${todayDate.getFullYear()} - ${todayDate.getMonth()+1} - ${todayDate.getDate()}`;
+    const [value, onChange] = useState<string>(todayDateString);
+    const [date, setDate] = useState<string>('');
     const [inspectionTasks, setInspectionTasks] = useState([]);
 
     async function getTasks(value){
-        let dd = value.getFullYear()+ '-'+ (value.getMonth()+1) + '-' + value.getDate()
+        let dd = `${value.getFullYear()} - ${(value.getMonth()+1)} - ${value.getDate()}`;
         setDate(dd);
-        api.getInspectionTasks(dd)
-        .then(function(response){
-            console.log(response.data.inspectionTasks);
-            setInspectionTasks(response.data.inspectionTasks);
-        }).catch((error)=>{
-            console.log(error);
-        })
+        // api.getInspectionTasks(dd)
+        // .then(function(response){
+        //     setInspectionTasks(response.data.inspectionTasks);
+        // }).catch((error)=>{
+        //     console.log(error);
+        // })
     }
     return (
     <div id="wrapper">

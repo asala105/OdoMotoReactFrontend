@@ -1,9 +1,8 @@
-import React from 'react';
 import LoginForm from '../components/LoginForm';
 import RegisterForm from '../components/RegisterForm';
 import SvgComponent2 from '../components/loginLogo';
 
-export default function LoginPage() {
+export function LoginPage() {
     return (
         <div className="Login-component" 
         style={{ backgroundImage: `url("bg3.jpg")`, marginLeft:10, marginRight:10 }}>

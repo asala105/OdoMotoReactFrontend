@@ -1,9 +1,8 @@
-import React from 'react'
-import DriversTable from '../components/users/DriversTable';
+import VehiclesTable from '../components/vehicles/VehiclesTable'
 import SideBar from '../components/navigation/SideBar'
 import Navbar from '../components/navigation/Navbar'
 
-export default function DriverList() {
+export function Vehicles() {
     return (
         <div id="wrapper">
         <SideBar />
@@ -14,16 +13,16 @@ export default function DriverList() {
             <div className="col">
                 <div className="card shadow mb-4">
                     <div className="card-header py-3">
-                        <h6 className="m-0 font-weight-bold text-my-primary">Drivers List</h6>
+                        <h6 className="m-0 font-weight-bold text-my-primary">Vehicles List</h6>
                     </div>
                     <div className="card-body">
-                        <DriversTable/>
+                        <VehiclesTable/>
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
-        </div>
-        </div>
-    );
+        </div>  
+    </div>
+    </div>
+    </div>
+    )
 }
