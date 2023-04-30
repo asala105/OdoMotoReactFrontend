@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function DataItem1(props) {
     return (
         <div className="card border-left-primary shadow h-100 py-2">

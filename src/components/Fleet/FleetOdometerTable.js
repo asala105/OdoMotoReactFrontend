@@ -1,28 +1,28 @@
-import React, {useState, useEffect} from 'react'
-import api from '../../api'
+import { useState, useEffect } from 'react'
+import { api } from '../../api';
 import FuelOdometerItem from './FuelOdometerItem';
 
 export default function FleetOdometerTable() {
-        const [data, setData] = useState([]);
-        function get_data(){
-            api.getFuelOdometer()
-            .then(function(response){
+    const [data, setData] = useState([]);
+    function get_data() {
+        api.getFuelOdometer()
+            .then(function (response) {
                 console.log(response);
                 setData(response.data.data);
-            }).catch((error)=>{
+            }).catch((error) => {
                 console.log(error);
             })
-        }
-    
-        function removeRow(id) {
-            document.getElementById(id).remove();
-          }
-    
-        useEffect(() => {
-            get_data()
-        }, []
-        )
-        return (
+    }
+
+    function removeRow(id) {
+        document.getElementById(id).remove();
+    }
+
+    useEffect(() => {
+        get_data()
+    }, []
+    )
+    return (
         <div className="table-responsive text-nowrap">
             <table className="table table-bordered" id="dataTable" width="100%">
                 <thead>
@@ -36,22 +36,23 @@ export default function FleetOdometerTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map(item => 
+                    {data.map(item =>
                         <FuelOdometerItem
-                        onRemove={function decline() {
-                            removeRow(item.id);
-                          }}
-                         id={item.id} 
-                            vehicle ={item.vehicle !==null? item.vehicle.registration_code:null}
-                            date ={item.vehicle !==null? item.fleet.date:null}
-                            fuel_before = {item.fuel_before_trip}
-                            fuel_after = {item.fuel_after_trip}
-                            odometer_before = {item.odometer_before_trip}
-                            odometer_after = {item.odometer_after_trip}
-                    />)}
+                            onRemove={function decline() {
+                                removeRow(item.id);
+                            }}
+                            key={item.id}
+                            id={item.id}
+                            vehicle={item.vehicle !== null ? item.vehicle.registration_code : null}
+                            date={item.vehicle !== null ? item.fleet.date : null}
+                            fuel_before={item.fuel_before_trip}
+                            fuel_after={item.fuel_after_trip}
+                            odometer_before={item.odometer_before_trip}
+                            odometer_after={item.odometer_after_trip}
+                        />)}
                 </tbody>
             </table>
         </div>
-        )
-    }
-    
+    )
+}
+

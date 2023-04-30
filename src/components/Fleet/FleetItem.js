@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function FleetItem(props) {
     return (
         <tr id={props.id}>

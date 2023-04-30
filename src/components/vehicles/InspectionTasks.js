@@ -1,5 +1,3 @@
-import React, {useState} from 'react'
-import api from '../../api'
 import InspectionTaskItem from './InspectionTaskItem'
 
 export default function InspectionTasks(props) {
@@ -20,7 +18,7 @@ export default function InspectionTasks(props) {
             </thead>
             <tbody>
                 {props.tasks.map((task)=>
-                    <InspectionTaskItem onRemove={()=>removeRow(task.id)} task={task}/>
+                    <InspectionTaskItem key={task.id} onRemove={()=>removeRow(task.id)} task={task}/>
                 )}
             </tbody>
         </table>
