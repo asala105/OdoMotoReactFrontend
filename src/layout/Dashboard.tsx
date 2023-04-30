@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import PageHeader from '../components/PageHeader';
+import { PageHeader } from '../components';
 import DataItem1 from '../components/dashboard/DataItem1';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { api } from '../api';
