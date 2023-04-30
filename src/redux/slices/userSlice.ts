@@ -18,7 +18,20 @@ export interface User {
 }
 
 const initialState: User = {
-  userProfile: null
+  userProfile: {
+    date_of_birth: '1999-09-09',
+    department: 'IT',
+    email: 'test@mail.com',
+    first_login: 0,
+    first_name: 'test',
+    id: 12,
+    last_name: 'name',
+    manager: 'xyz',
+    phone_nb: '96179165023',
+    rank: 7,
+    user_type_id: 2,
+    organization_id: '10',
+  }
 }
 
 const userSlice = createSlice({

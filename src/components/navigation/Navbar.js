@@ -8,7 +8,7 @@ import { deleteToken } from '../../redux/slices/tokenSlice';
 import { deleteUser } from '../../redux/slices/userSlice';
 import { store } from '../../redux/store';;
 
-export default function Navbar() {
+export function Navbar() {
     const user = useSelector((state) => state?.user);
     const [notifications, setNotifications] = useState([]);
     const [counter, setCount] = useState(0);

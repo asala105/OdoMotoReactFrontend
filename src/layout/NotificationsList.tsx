@@ -1,18 +1,16 @@
-import {useState, useEffect} from 'react'
-import {api} from '../api'
-import SideBar from '../components/navigation/SideBar'
-import Navbar from '../components/navigation/Navbar'
+import { useState, useEffect } from 'react'
+import { api } from '../api'
 import NotificationItem from '../components/NotificationItem';
 
 type Notification = {
     id: string;
-title: string;
-body: string;
-is_read: boolean;
+    title: string;
+    body: string;
+    is_read: boolean;
 }
 
 interface Response {
-    data : {
+    data: {
         notifications: Notification[];
     }
 }
@@ -31,14 +29,10 @@ export function NotificationsList() {
     }
     useEffect(() => {
         allNotifications();
-    },[]);
+    }, []);
     return (
-<div id="wrapper">
-    <SideBar />
-    <div id="content-wrapper" className="d-flex flex-column">
-        <div id="content">
-            <Navbar />
-            <div className="row" style={{ marginLeft:10, marginRight:10 }}>
+        <div>
+            <div className="row" style={{ marginLeft: 10, marginRight: 10 }}>
                 <div className="col">
                     <div className="card shadow mb-4">
                         <div className="card-header py-3">
@@ -48,16 +42,14 @@ export function NotificationsList() {
                         </div>
                         <div className="card-body">
                             <div className="table-responsive text-nowrap">
-                                {notifications.map((item)=>
-                                <NotificationItem key={item.id} id={item.id} title={item.title} body={item.body} is_read={item.is_read}/>
+                                {notifications.map((item) =>
+                                    <NotificationItem key={item.id} id={item.id} title={item.title} body={item.body} is_read={item.is_read} />
                                 )}
                             </div>
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
         </div>
-    </div>
-</div> 
     )
 }

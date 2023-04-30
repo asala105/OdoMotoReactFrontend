@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import SvgComponent from './logo';
 import { Link } from 'react-router-dom';
 
-export default function SideBar() {
-    const mediaQuery = window.matchMedia("(min-width: 42rem)");
+export function SideBar() {
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
     const [query, setQuery] = useState(mediaQuery);
 
     React.useEffect(() => {
