@@ -35,14 +35,6 @@ export default function Navbar() {
         });
     }
 
-    // function toggleSidebar(){
-    //     document.body.classList.toggle("sidebar-toggled");
-    //     document.querySelector(".sidebar").classList.toggle("toggled");
-    //     if (document.querySelector(".sidebar").classList.contains("toggled")) {
-    //     document.querySelector('.sidebar .collapse')
-    //     .collapse('hide');
-    //     };
-    // }
     useEffect(() => {
         allNotifications();
     },[]);
